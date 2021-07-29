@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 import getImageHeight from "../../utils/getImageHeight";
 import getTileMeasurements from "../../utils/getTileMeasurements";
+import { Icon } from "semantic-ui-react";
 import styles from "./styles.css";
 
 const Tile = React.memo(function Tile({
@@ -18,12 +19,14 @@ const Tile = React.memo(function Tile({
   selectable,
   windowHeight,
   scrollSpeed,
-  settings
+  settings,
+  favorited
 }) {
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
-  const isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type.includes('video');
+  const isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type !== undefined && item.type.includes('video');
+  const isFavorited = favorited;
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
@@ -151,17 +154,22 @@ const Tile = React.memo(function Tile({
           playsInline
         />
       )}
-      {isSelectable && (
-          <input
-            type="checkbox"
-            class={styles.checkbox}
-            checked={isSelected}
-            onClick={event => {
-              event.stopPropagation();
-              handleSelection(item);
-            }}
-          ></input>
-      )}
+      <div class={styles.overlays} >
+        {isSelectable && (
+            <input
+              type="checkbox"
+              class={styles.checkbox}
+              checked={isSelected}
+              onClick={event => {
+                event.stopPropagation();
+                handleSelection(item);
+              }}
+            ></input>
+        )}
+        {isFavorited && (
+          <Icon name="star" color={"yellow"} />
+        )}
+      </div>
     </animated.button>
   );
 });

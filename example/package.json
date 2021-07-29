@@ -5,11 +5,13 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "font-awesome": "^4.7.0",
+    "pig-react": "link:..",
     "prop-types": "^15.6.2",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "^1.1.4",
-    "pig-react": "link:.."
+    "semantic-ui-css": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

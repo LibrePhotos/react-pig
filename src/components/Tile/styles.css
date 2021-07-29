@@ -90,15 +90,15 @@
 }
 
 .checkbox {
-  position: absolute;
-  top: 0px;
-  left: 0px;
   opacity: 0;
 }
 
 .checkbox:checked {
+  opacity: 1;
+}
+
+.overlays {
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 1;
 }

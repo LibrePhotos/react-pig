@@ -4,6 +4,7 @@ import Pig from "pig-react";
 import imageData from "./imageData.json";
 import SelectablePig from "./SelectablePig";
 
+import 'semantic-ui-css/semantic.min.css';
 import "./base.css";
 
 ReactDOM.render(
