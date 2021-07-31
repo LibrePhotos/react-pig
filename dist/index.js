@@ -9613,8 +9613,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$2 = ".styles_pigBtn__2fg-y {\n  contain: strict;\n  /* overflow: hidden; */\n  position: absolute;\n  left: 0;\n  top: 0;\n  outline-style: solid;\n  outline: 0;\n  will-change: transform, width, height, outline-color;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  padding: 0;\n  text-align: left;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  cursor: pointer;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\n\n/* .pigBtn:hover,\n.pigBtn:focus {\n  outline: 6px solid yellow;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\n  transform: none;\n}\n\n.styles_pigImg__3TCRj {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.styles_pigFull__1WI_d {\n  opacity: 0;\n  transition: opacity 150ms linear;\n  will-change: opacity;\n}\n\n.styles_pigThumbnail__Cqepl {\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n\n.styles_pigThumbnailLoaded__siNak {\n  /* just in case it might help performance */\n  filter: none;\n}\n\n.styles_pigFullLoaded__3A8x7 {\n  opacity: 1;\n}\n\n/* .caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  color: #fff;\n  pointer-events: none;\n  width: 100%;\n  padding: 8px;\n} */\n/* \n.caption::after {\n  content: '';\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\n  top: 0;\n  left: 0;\n  bottom: -10px;\n  right: 0;\n  position: absolute;\n  z-index: -1;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\n  opacity: 0.5;\n  transition: all 200ms linear;\n}\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_checkbox__2WWsQ {\n  opacity: 0;\n}\n\n.styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_overlays__2hjFL {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n}\n";
-var styles$2 = {"pigBtn":"styles_pigBtn__2fg-y","caption":"styles_caption__1Fti-","pigImg":"styles_pigImg__3TCRj","pigFull":"styles_pigFull__1WI_d","pigThumbnail":"styles_pigThumbnail__Cqepl","pigThumbnailLoaded":"styles_pigThumbnailLoaded__siNak","pigFullLoaded":"styles_pigFullLoaded__3A8x7","checkbox":"styles_checkbox__2WWsQ","overlays":"styles_overlays__2hjFL"};
+var css_248z$2 = ".styles_pigBtn__2fg-y {\n  contain: strict;\n  /* overflow: hidden; */\n  position: absolute;\n  left: 0;\n  top: 0;\n  outline-style: solid;\n  outline: 0;\n  will-change: transform, width, height, outline-color;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  padding: 0;\n  text-align: left;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  cursor: pointer;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\n\n/* .pigBtn:hover,\n.pigBtn:focus {\n  outline: 6px solid yellow;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\n  transform: none;\n}\n\n.styles_pigImg__3TCRj {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.styles_pigFull__1WI_d {\n  opacity: 0;\n  transition: opacity 150ms linear;\n  will-change: opacity;\n}\n\n.styles_pigThumbnail__Cqepl {\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n\n.styles_pigThumbnailLoaded__siNak {\n  /* just in case it might help performance */\n  filter: none;\n}\n\n.styles_pigFullLoaded__3A8x7 {\n  opacity: 1;\n}\n\n/* .caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  color: #fff;\n  pointer-events: none;\n  width: 100%;\n  padding: 8px;\n} */\n/*\n.caption::after {\n  content: '';\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\n  top: 0;\n  left: 0;\n  bottom: -10px;\n  right: 0;\n  position: absolute;\n  z-index: -1;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\n  opacity: 0.5;\n  transition: all 200ms linear;\n}\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_checkbox__2WWsQ {\n  opacity: 0;\n}\n\n.styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_overlaysTopLeft__T_0rX {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n}\n\n.styles_overlaysTopRight__34YAC {\n  position: absolute;\n  top: 0px;\n  right: -4px;\n}\n";
+var styles$2 = {"pigBtn":"styles_pigBtn__2fg-y","caption":"styles_caption__1Fti-","pigImg":"styles_pigImg__3TCRj","pigFull":"styles_pigFull__1WI_d","pigThumbnail":"styles_pigThumbnail__Cqepl","pigThumbnailLoaded":"styles_pigThumbnailLoaded__siNak","pigFullLoaded":"styles_pigFullLoaded__3A8x7","checkbox":"styles_checkbox__2WWsQ","overlaysTopLeft":"styles_overlaysTopLeft__T_0rX","overlaysTopRight":"styles_overlaysTopRight__34YAC"};
 styleInject(css_248z$2);
 
 var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
@@ -9635,7 +9635,7 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
   var isSelectable = selectable;
   var isSelected = selected;
   var isExpanded = activeTileUrl === item.url;
-  var isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type !== undefined && item.type.includes('video');
+  var isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type !== undefined && item.type.includes("video");
   var isFavorited = favorited;
 
   var _useState = React.useState(isVideo ? true : false),
@@ -9765,8 +9765,8 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
     muted: true,
     loop: true,
     playsInline: true
-  }), /*#__PURE__*/React__default['default'].createElement("div", {
-    "class": styles$2.overlays
+  }), /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("div", {
+    "class": styles$2.overlaysTopLeft
   }, isSelectable && /*#__PURE__*/React__default['default'].createElement("input", {
     type: "checkbox",
     "class": styles$2.checkbox,
@@ -9775,10 +9775,12 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
       event.stopPropagation();
       handleSelection(item);
     }
-  }), isFavorited && /*#__PURE__*/React__default['default'].createElement(Icon, {
+  })), /*#__PURE__*/React__default['default'].createElement("div", {
+    "class": styles$2.overlaysTopRight
+  }, isFavorited && /*#__PURE__*/React__default['default'].createElement(Icon, {
     name: "star",
     color: "yellow"
-  })));
+  }))));
 });
 Tile.propTypes = {
   item: PropTypes__default['default'].object.isRequired,
