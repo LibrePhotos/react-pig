@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 import getImageHeight from "../../utils/getImageHeight";
 import getTileMeasurements from "../../utils/getTileMeasurements";
+import { Icon } from "semantic-ui-react";
 import styles from "./styles.css";
 
 const Tile = React.memo(function Tile({
@@ -18,12 +19,17 @@ const Tile = React.memo(function Tile({
   selectable,
   windowHeight,
   scrollSpeed,
-  settings
+  settings,
+  favorited,
 }) {
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
-  const isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type.includes('video');
+  const isVideo =
+    item.url.includes(".mp4") ||
+    item.url.includes(".mov") ||
+    (item.type !== undefined && item.type.includes("video"));
+  const isFavorited = favorited;
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
@@ -33,7 +39,7 @@ const Tile = React.memo(function Tile({
     windowHeight,
     settings,
     containerWidth,
-    containerOffsetTop
+    containerOffsetTop,
   });
 
   // gridPosition is what has been set by the grid layout logic (in the parent component)
@@ -49,7 +55,7 @@ const Tile = React.memo(function Tile({
     marginLeft,
     marginRight,
     marginTop,
-    marginBottom
+    marginBottom,
   } = useSpring({
     transform: isExpanded ? screenCenter : gridPosition,
     zIndex: isExpanded ? 10 : 0, // 10 so that it takes a little longer before settling at 0
@@ -67,7 +73,7 @@ const Tile = React.memo(function Tile({
     marginRight: isSelected && !isExpanded ? item.style.width * 0.05 : 0,
     marginTop: isSelected && !isExpanded ? item.style.height * 0.05 : 0,
     marginBottom: isSelected && !isExpanded ? item.style.height * 0.05 : 0,
-    config: { mass: 1.5, tension: 400, friction: 40 }
+    config: { mass: 1.5, tension: 400, friction: 40 },
   });
 
   return (
@@ -75,20 +81,20 @@ const Tile = React.memo(function Tile({
       className={`${styles.pigBtn}${
         isExpanded ? ` ${styles.pigBtnActive}` : ""
       } pig-btn`}
-      onClick={event => handleClick(event, item)}
+      onClick={(event) => handleClick(event, item)}
       style={{
         outline: isExpanded
           ? `${settings.gridGap}px solid ${settings.bgColor}`
           : null,
         backgroundColor: item.dominantColor,
-        zIndex: zIndex.interpolate(t => Math.round(t)),
-        width: width.interpolate(t => t),
-        height: height.interpolate(t => t),
-        marginLeft: marginLeft.interpolate(t => t),
-        marginRight: marginRight.interpolate(t => t),
-        marginTop: marginTop.interpolate(t => t),
-        marginBottom: marginBottom.interpolate(t => t),
-        transform: transform.interpolate(t => t)
+        zIndex: zIndex.interpolate((t) => Math.round(t)),
+        width: width.interpolate((t) => t),
+        height: height.interpolate((t) => t),
+        marginLeft: marginLeft.interpolate((t) => t),
+        marginRight: marginRight.interpolate((t) => t),
+        marginTop: marginTop.interpolate((t) => t),
+        marginBottom: marginBottom.interpolate((t) => t),
+        transform: transform.interpolate((t) => t),
       }}
     >
       {useLqip && (
@@ -151,17 +157,24 @@ const Tile = React.memo(function Tile({
           playsInline
         />
       )}
-      {isSelectable && (
-          <input
-            type="checkbox"
-            class={styles.checkbox}
-            checked={isSelected}
-            onClick={event => {
-              event.stopPropagation();
-              handleSelection(item);
-            }}
-          ></input>
-      )}
+      <div>
+        <div class={styles.overlaysTopLeft}>
+          {isSelectable && (
+            <input
+              type="checkbox"
+              class={styles.checkbox}
+              checked={isSelected}
+              onClick={(event) => {
+                event.stopPropagation();
+                handleSelection(item);
+              }}
+            ></input>
+          )}
+        </div>
+        <div class={styles.overlaysTopRight}>
+          {isFavorited && <Icon name="star" color={"yellow"} />}
+        </div>
+      </div>
     </animated.button>
   );
 });
@@ -172,5 +185,5 @@ Tile.propTypes = {
   item: PropTypes.object.isRequired,
   containerWidth: PropTypes.number,
   settings: PropTypes.object.isRequired,
-  getUrl: PropTypes.func
+  getUrl: PropTypes.func,
 };

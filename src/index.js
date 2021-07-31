@@ -233,6 +233,7 @@ export default class Pig extends Component {
       settings={this.settings}
       thumbnailSize={this.props.thumbnailSize}
       scrollSpeed={this.state.scrollSpeed}
+      favorited={item.favorited}
     />
   );
 

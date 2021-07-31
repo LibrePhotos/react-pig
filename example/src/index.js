@@ -5,6 +5,7 @@ import imageData from "./imageData.json";
 import SelectablePig from "./SelectablePig";
 import DeletablePig from "./DeletablePig.js";
 
+import 'semantic-ui-css/semantic.min.css';
 import "./base.css";
 
 ReactDOM.render(
