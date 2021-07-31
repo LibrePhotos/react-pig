@@ -5345,7 +5345,7 @@ var Pig = /*#__PURE__*/function (_Component) {
         scrollDirection: this.scrollDirection,
         settings: this.settings,
         latestYOffset: this.latestYOffset,
-        imageData: imageData,
+        imageData: this.imageData,
         windowHeight: this.windowHeight
       });
       this.setState({
@@ -5384,6 +5384,15 @@ var Pig = /*#__PURE__*/function (_Component) {
       }
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props != prevProps) {
+        this.imageData = this.props.imageData;
+        this.imageData = this.getUpdatedImageLayout();
+        this.setRenderedItems(this.imageData);
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.container = this.containerRef.current;
@@ -5406,6 +5415,7 @@ var Pig = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.imageData);
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: styles.output,
         ref: this.containerRef

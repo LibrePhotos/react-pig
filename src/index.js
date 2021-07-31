@@ -55,8 +55,7 @@ export default class Pig extends Component {
       selectedItems: [],
       scrollSpeed: "slow",
       activeTileUrl: null
-    };
-
+    }
     
     this.scrollThrottleMs = 300;
     (this.windowHeight =
@@ -100,7 +99,7 @@ export default class Pig extends Component {
       scrollDirection: this.scrollDirection,
       settings: this.settings,
       latestYOffset: this.latestYOffset,
-      imageData: imageData,
+      imageData: this.imageData,
       windowHeight: this.windowHeight
     });
 
@@ -189,6 +188,14 @@ export default class Pig extends Component {
       return imageData;
     }
   }
+  
+  componentDidUpdate(prevProps) {
+      if (this.props != prevProps) {
+        this.imageData = this.props.imageData;
+        this.imageData = this.getUpdatedImageLayout();
+        this.setRenderedItems(this.imageData);
+      }
+  }
 
   componentDidMount() {
     this.container = this.containerRef.current;
@@ -243,6 +250,7 @@ export default class Pig extends Component {
   renderFlat = item => this.renderTile(item);
 
   render() {
+      console.log(this.imageData)
     return (
       <div className={styles.output} ref={this.containerRef}>
         {this.state.renderedItems.map(item => {
