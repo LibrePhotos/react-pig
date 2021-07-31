@@ -955,7 +955,7 @@ function _arrayWithHoles(arr) {
 }
 
 function _iterableToArrayLimit(arr, i) {
-  var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]);
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
 
   if (_i == null) return;
   var _arr = [];
@@ -4690,7 +4690,7 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
   var isSelectable = selectable;
   var isSelected = selected;
   var isExpanded = activeTileUrl === item.url;
-  var isVideo = item.url.includes(".mp4") || item.url.includes(".mov");
+  var isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type.includes('video');
 
   var _useState = React.useState(isVideo ? true : false),
       _useState2 = _slicedToArray(_useState, 2),

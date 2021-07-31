@@ -23,7 +23,7 @@ const Tile = React.memo(function Tile({
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
-  const isVideo = item.url.includes(".mp4") || item.url.includes(".mov");
+  const isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type.includes('video');
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
