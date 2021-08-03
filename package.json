@@ -30,8 +30,7 @@
     "es-abstract": "1.18.3",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
-    "react-spring": "^9.2.3",
-    "semantic-ui-react": "^2.0.3"
+    "react-spring": "^9.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
