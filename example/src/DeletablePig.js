@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Pig from "pig-react";
+import Overlay from "./Overlay";
 
 
 export default class DeletablePig extends Component {
@@ -32,6 +33,7 @@ export default class DeletablePig extends Component {
               groupGapSm={20}
               selectable={true}
               breakpoint={800}
+              overlay={Overlay}
             />
         </div>
     )

@@ -12,7 +12,7 @@ ReactDOM.render(
   <main className="main">
     {
       <DeletablePig
-        imageData={imageData}  
+        imageData={imageData}
       />
     }
     {/* <Pig
