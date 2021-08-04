@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 import getImageHeight from "../../utils/getImageHeight";
 import getTileMeasurements from "../../utils/getTileMeasurements";
-import { Icon } from "semantic-ui-react";
 import styles from "./styles.css";
 
 const Tile = React.memo(function Tile({
@@ -20,7 +19,7 @@ const Tile = React.memo(function Tile({
   windowHeight,
   scrollSpeed,
   settings,
-  favorited,
+  overlay
 }) {
   const isSelectable = selectable;
   const isSelected = selected;
@@ -29,10 +28,10 @@ const Tile = React.memo(function Tile({
     item.url.includes(".mp4") ||
     item.url.includes(".mov") ||
     (item.type !== undefined && item.type.includes("video"));
-  const isFavorited = favorited;
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
+  const Overlay = overlay
 
   const { calcWidth, calcHeight, offsetX, offsetY } = getTileMeasurements({
     item,
@@ -172,7 +171,7 @@ const Tile = React.memo(function Tile({
           )}
         </div>
         <div class={styles.overlaysTopRight}>
-          {isFavorited && <Icon name="star" color={"yellow"} />}
+          {undefined != Overlay && (<Overlay item={item} />)}
         </div>
       </div>
     </animated.button>
