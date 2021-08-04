@@ -55,7 +55,7 @@ class App extends Component {
           // If you omit this prop completely, Pig will do exactly this;
         }}
         handleClick={(event, item) => {}} // Allows for a custom click handler
-        selectable={true} // If true, it will add a selection to the top right corner
+        selectable={true} // If true, it will add a selection to the top left corner
         handleSelection={(item) =>{}} // Allows for a custom selection handler
         selectedItems={selectedItems} // Array. Makes it possible to change the state of the selected tiles
         overlay={component} // Add a component to the top right corner as an overlay
