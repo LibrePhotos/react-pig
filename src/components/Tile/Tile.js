@@ -150,7 +150,8 @@ const Tile = React.memo(function Tile({
         <video
           className={styles.pigImg}
           src={getUrl(item.url, settings.expandedSize)}
-          autoPlay
+          onMouseOver={event => event.target.play()}
+          onMouseOut={event => event.target.pause()}
           muted
           loop
           playsInline

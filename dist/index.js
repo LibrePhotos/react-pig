@@ -4818,7 +4818,12 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
   React__default['default'].createElement("video", {
     className: styles$2.pigImg,
     src: getUrl(item.url, settings.expandedSize),
-    autoPlay: true,
+    onMouseOver: function onMouseOver(event) {
+      return event.target.play();
+    },
+    onMouseOut: function onMouseOut(event) {
+      return event.target.pause();
+    },
     muted: true,
     loop: true,
     playsInline: true
