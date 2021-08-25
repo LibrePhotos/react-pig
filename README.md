@@ -35,6 +35,7 @@ class App extends Component {
     return (
       <Pig
         imageData={imageData} // Array. Required.
+        scaleOfImage={3} // Number. Show more or less images. This value would show 3x more images
         groupByDate // Boolean. Optional. Groups images by 'date' value. And uses the first 'location' in the group for the heading text.
         gridGap={10} // Integer. Optional. Defaults to 8
         expandedSize={1600} // Integer. Optional. Expanded image will be loaded in that size. Defaults to 1000

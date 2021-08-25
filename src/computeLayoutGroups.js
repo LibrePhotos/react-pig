@@ -6,10 +6,11 @@ export default function ({
   settings,
   totalHeight,
   wrapperWidth,
+  scaleOfImages,
 }) {
 
   // Compute the minimum aspect ratio that should be applied to the rows.
-  const minAspectRatio = getMinAspectRatio(wrapperWidth)
+  const minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages)
   const groupTitleHeight = 50 //wrapperWidth < settings.breakpoint ? 50 : 50
 
   const tempGroupData = []

@@ -4642,7 +4642,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$2 = ".styles_pigBtn__2fg-y {\n  contain: strict;\n  /* overflow: hidden; */\n  position: absolute;\n  left: 0;\n  top: 0;\n  outline-style: solid;\n  outline: 0;\n  will-change: transform, width, height, outline-color;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  padding: 0;\n  text-align: left;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  cursor: pointer;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\n\n/* .pigBtn:hover,\n.pigBtn:focus {\n  outline: 6px solid yellow;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\n  transform: none;\n}\n\n.styles_pigImg__3TCRj {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.styles_pigFull__1WI_d {\n  opacity: 0;\n  transition: opacity 150ms linear;\n  will-change: opacity;\n}\n\n.styles_pigThumbnail__Cqepl {\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n\n.styles_pigThumbnailLoaded__siNak {\n  /* just in case it might help performance */\n  filter: none;\n}\n\n.styles_pigFullLoaded__3A8x7 {\n  opacity: 1;\n}\n\n/* .caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  color: #fff;\n  pointer-events: none;\n  width: 100%;\n  padding: 8px;\n} */\n/*\n.caption::after {\n  content: '';\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\n  top: 0;\n  left: 0;\n  bottom: -10px;\n  right: 0;\n  position: absolute;\n  z-index: -1;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\n  opacity: 0.5;\n  transition: all 200ms linear;\n}\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_checkbox__2WWsQ {\n  opacity: 0;\n}\n\n.styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_overlaysTopLeft__T_0rX {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n}\n\n.styles_overlaysTopRight__34YAC {\n  position: absolute;\n  top: 0px;\n  right: -4px;\n}\n";
+var css_248z$2 = ".styles_pigBtn__2fg-y {\r\n  contain: strict;\r\n  /* overflow: hidden; */\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  outline-style: solid;\r\n  outline: 0;\r\n  will-change: transform, width, height, outline-color;\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\r\n  padding: 0;\r\n  text-align: left;\r\n  background: transparent;\r\n  color: inherit;\r\n  font: inherit;\r\n  line-height: normal;\r\n  cursor: pointer;\r\n  -webkit-font-smoothing: inherit;\r\n  -moz-osx-font-smoothing: inherit;\r\n  -webkit-appearance: none;\r\n}\r\n\r\n/* .pigBtn:hover,\r\n.pigBtn:focus {\r\n  outline: 6px solid yellow;\r\n} */\r\n\r\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\r\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\r\n  transform: none;\r\n}\r\n\r\n.styles_pigImg__3TCRj {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n}\r\n\r\n.styles_pigFull__1WI_d {\r\n  opacity: 0;\r\n  transition: opacity 150ms linear;\r\n  will-change: opacity;\r\n}\r\n\r\n.styles_pigThumbnail__Cqepl {\r\n  -webkit-filter: blur(8px);\r\n  filter: blur(8px);\r\n}\r\n\r\n.styles_pigThumbnailLoaded__siNak {\r\n  /* just in case it might help performance */\r\n  filter: none;\r\n}\r\n\r\n.styles_pigFullLoaded__3A8x7 {\r\n  opacity: 1;\r\n}\r\n\r\n/* .caption {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  color: #fff;\r\n  pointer-events: none;\r\n  width: 100%;\r\n  padding: 8px;\r\n} */\r\n/*\r\n.caption::after {\r\n  content: '';\r\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\r\n  top: 0;\r\n  left: 0;\r\n  bottom: -10px;\r\n  right: 0;\r\n  position: absolute;\r\n  z-index: -1;\r\n} */\r\n\r\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\r\n  opacity: 0.5;\r\n  transition: all 200ms linear;\r\n}\r\n\r\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\r\n  opacity: 1;\r\n}\r\n\r\n.styles_checkbox__2WWsQ {\r\n  opacity: 0;\r\n}\r\n\r\n.styles_checkbox__2WWsQ:checked {\r\n  opacity: 1;\r\n}\r\n\r\n.styles_overlaysTopLeft__T_0rX {\r\n  position: absolute;\r\n  top: 0px;\r\n  left: 0px;\r\n}\r\n\r\n.styles_overlaysTopRight__34YAC {\r\n  position: absolute;\r\n  top: 0px;\r\n  right: -4px;\r\n}\r\n";
 var styles$2 = {"pigBtn":"styles_pigBtn__2fg-y","caption":"styles_caption__1Fti-","pigImg":"styles_pigImg__3TCRj","pigFull":"styles_pigFull__1WI_d","pigThumbnail":"styles_pigThumbnail__Cqepl","pigThumbnailLoaded":"styles_pigThumbnailLoaded__siNak","pigFullLoaded":"styles_pigFullLoaded__3A8x7","checkbox":"styles_checkbox__2WWsQ","overlaysTopLeft":"styles_overlaysTopLeft__T_0rX","overlaysTopRight":"styles_overlaysTopRight__34YAC"};
 styleInject(css_248z$2);
 
@@ -4818,7 +4818,7 @@ Tile.propTypes = {
   getUrl: PropTypes.func
 };
 
-var css_248z$1 = ".styles_headerPositioner__46Klj {\n  width: 100%;\n  position: absolute;\n}\n\n.styles_headerInner__1IUau {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  width: 100%;\n  line-height: 1.5;\n  display: flex;\n  align-items: baseline;\n}\n\n.styles_location__2eIe1 {\n  font-size: 15px;\n  margin-right: 1rem;\n  flex: 1;\n  opacity: 0.5;\n}\n\n.styles_date__LPt1R {\n  font-size: 18px;\n  font-weight: bold;\n  text-align: right;\n  flex: 1;\n}\n\n@media (min-width: 600px) {\n  .styles_date__LPt1R {\n    font-size: 32px;\n  }\n\n  .styles_location__2eIe1 {\n    font-size: 16px;\n  }\n}\n\n@media (min-width: 1000px) {\n  .styles_headerInner__1IUau {\n    justify-content: flex-end;\n  }\n\n  .styles_date__LPt1R {\n    flex: inherit;\n  }\n\n  .styles_location__2eIe1 {\n    flex: inherit;\n  }\n}\n";
+var css_248z$1 = ".styles_headerPositioner__46Klj {\r\n  width: 100%;\r\n  position: absolute;\r\n}\r\n\r\n.styles_headerInner__1IUau {\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  top: 0;\r\n  width: 100%;\r\n  line-height: 1.5;\r\n  display: flex;\r\n  align-items: baseline;\r\n}\r\n\r\n.styles_location__2eIe1 {\r\n  font-size: 15px;\r\n  margin-right: 1rem;\r\n  flex: 1;\r\n  opacity: 0.5;\r\n}\r\n\r\n.styles_date__LPt1R {\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  text-align: right;\r\n  flex: 1;\r\n}\r\n\r\n@media (min-width: 600px) {\r\n  .styles_date__LPt1R {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .styles_location__2eIe1 {\r\n    font-size: 16px;\r\n  }\r\n}\r\n\r\n@media (min-width: 1000px) {\r\n  .styles_headerInner__1IUau {\r\n    justify-content: flex-end;\r\n  }\r\n\r\n  .styles_date__LPt1R {\r\n    flex: inherit;\r\n  }\r\n\r\n  .styles_location__2eIe1 {\r\n    flex: inherit;\r\n  }\r\n}\r\n";
 var styles$1 = {"headerPositioner":"styles_headerPositioner__46Klj","headerInner":"styles_headerInner__1IUau","location":"styles_location__2eIe1","date":"styles_date__LPt1R"};
 styleInject(css_248z$1);
 
@@ -4906,14 +4906,14 @@ function calcRenderableItems (_ref) {
   *
   * @param {Number} containerWidth - The last computed width of the
   *                                   container
-  *
+  * @param {Number} scaleOfImages - The size of the images
   * @returns {Number} The minimum aspect ratio at this window width.
   */
-function getMinAspectRatio (containerWidth) {
-  if (containerWidth <= 800) return 1.5;
-  if (containerWidth <= 1280) return 3;
-  if (containerWidth <= 1920) return 4;
-  return 5;
+function getMinAspectRatio (containerWidth, scaleOfImages) {
+  if (containerWidth <= 800) return 1.5 * scaleOfImages;
+  if (containerWidth <= 1280) return 3 * scaleOfImages;
+  if (containerWidth <= 1920) return 4 * scaleOfImages;
+  return 5 * scaleOfImages;
 }
 
 function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -4923,9 +4923,10 @@ function computeLayout (_ref) {
   var imageData = _ref.imageData,
       settings = _ref.settings,
       totalHeight = _ref.totalHeight,
-      wrapperWidth = _ref.wrapperWidth;
+      wrapperWidth = _ref.wrapperWidth,
+      scaleOfImages = _ref.scaleOfImages;
   // Compute the minimum aspect ratio that should be applied to the rows.
-  var minAspectRatio = getMinAspectRatio(wrapperWidth); // State
+  var minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages); // State
 
   var row = []; // The list of images in the current row.
 
@@ -4998,9 +4999,10 @@ function computeLayoutGroups (_ref) {
   var imageData = _ref.imageData,
       settings = _ref.settings,
       totalHeight = _ref.totalHeight,
-      wrapperWidth = _ref.wrapperWidth;
+      wrapperWidth = _ref.wrapperWidth,
+      scaleOfImages = _ref.scaleOfImages;
   // Compute the minimum aspect ratio that should be applied to the rows.
-  var minAspectRatio = getMinAspectRatio(wrapperWidth);
+  var minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages);
   var groupTitleHeight = 50; //wrapperWidth < settings.breakpoint ? 50 : 50
 
   var tempGroupData = [];
@@ -5132,7 +5134,7 @@ function getScrollSpeed (latestYOffset, scrollThrottleMs, idleCallback) {
   return scrollSpeed;
 }
 
-var css_248z = ".styles_output__3sk8R {\n  position: relative;\n}\n";
+var css_248z = ".styles_output__3sk8R {\r\n  position: relative;\r\n}\r\n";
 var styles = {"output":"styles_output__3sk8R"};
 styleInject(css_248z);
 
@@ -5270,7 +5272,8 @@ var Pig = /*#__PURE__*/function (_Component) {
     _this.handleClick = props.handleClick || _this.defaultHandleClick;
     _this.selectable = props.selectable || false;
     _this.handleSelection = props.handleSelection || _this.defaultHandleSelection;
-    _this.imageData = props.imageData; // if sortFunc has been provided as a prop, use it
+    _this.imageData = props.imageData;
+    _this.scaleOfImages = props.scaleOfImages || 1; // if sortFunc has been provided as a prop, use it
 
     if (props.sortFunc) _this.imageData.sort(props.sortFunc);else if (props.sortByDate) _this.imageData = sortByDate_1(_this.imageData); // check grouping ability
 
@@ -5345,7 +5348,8 @@ var Pig = /*#__PURE__*/function (_Component) {
           wrapperWidth: wrapperWidth,
           minAspectRatio: this.minAspectRatio,
           imageData: this.imageData,
-          settings: this.settings
+          settings: this.settings,
+          scaleOfImages: this.scaleOfImages
         }),
             imageData = _computeLayoutGroups.imageData,
             newTotalHeight = _computeLayoutGroups.newTotalHeight;
@@ -5357,7 +5361,8 @@ var Pig = /*#__PURE__*/function (_Component) {
           wrapperWidth: wrapperWidth,
           minAspectRatio: this.minAspectRatio,
           imageData: this.imageData,
-          settings: this.settings
+          settings: this.settings,
+          scaleOfImages: this.scaleOfImages
         }),
             _imageData = _computeLayout.imageData,
             _newTotalHeight = _computeLayout.newTotalHeight;

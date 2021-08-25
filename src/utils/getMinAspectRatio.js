@@ -9,12 +9,12 @@
   *
   * @param {Number} containerWidth - The last computed width of the
   *                                   container
-  *
+  * @param {Number} scaleOfImages - The size of the images
   * @returns {Number} The minimum aspect ratio at this window width.
   */
-export default function(containerWidth) {
-  if (containerWidth <= 800) return 1.5
-  if (containerWidth <= 1280) return 3
-  if (containerWidth <= 1920) return 4
-  return 5
+export default function(containerWidth, scaleOfImages) {
+  if (containerWidth <= 800) return 1.5 * scaleOfImages;
+  if (containerWidth <= 1280) return 3 * scaleOfImages;
+  if (containerWidth <= 1920) return 4 * scaleOfImages;
+  return 5 * scaleOfImages;
 }

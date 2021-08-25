@@ -10,12 +10,13 @@ import "./base.css";
 
 ReactDOM.render(
   <main className="main">
-    {
+    {/*
       <DeletablePig
         imageData={imageData}
       />
+      */
     }
-    {/* <Pig
+    { <Pig
       imageData={imageData}
       gridGap={8}
       bgColor="hsla(211, 50%, 98%)"
@@ -23,7 +24,8 @@ ReactDOM.render(
       groupGapSm={20}
       selectable={true}
       breakpoint={800}
-    /> */} 
+      scaleOfImages={3}
+    /> } 
   </main>,
   document.getElementById("root")
 );

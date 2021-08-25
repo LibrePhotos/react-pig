@@ -22,10 +22,11 @@ export default function ({
   settings,
   totalHeight,
   wrapperWidth,
+  scaleOfImages,
 }) {
 
   // Compute the minimum aspect ratio that should be applied to the rows.
-  const minAspectRatio = getMinAspectRatio(wrapperWidth)
+  const minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages)
 
   // State
   let row = []           // The list of images in the current row.

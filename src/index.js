@@ -30,6 +30,7 @@ export default class Pig extends Component {
     this.selectable = props.selectable || false;
     this.handleSelection = props.handleSelection || this.defaultHandleSelection;
     this.imageData = props.imageData;
+    this.scaleOfImages = props.scaleOfImages || 1;
 
     // if sortFunc has been provided as a prop, use it
     if (props.sortFunc) this.imageData.sort(props.sortFunc);
@@ -171,7 +172,8 @@ export default class Pig extends Component {
         wrapperWidth,
         minAspectRatio: this.minAspectRatio,
         imageData: this.imageData,
-        settings: this.settings
+        settings: this.settings,
+        scaleOfImages: this.scaleOfImages,
       });
 
       this.totalHeight = newTotalHeight;
@@ -181,7 +183,8 @@ export default class Pig extends Component {
         wrapperWidth,
         minAspectRatio: this.minAspectRatio,
         imageData: this.imageData,
-        settings: this.settings
+        settings: this.settings,
+        scaleOfImages: this.scaleOfImages,
       });
 
       this.totalHeight = newTotalHeight;
