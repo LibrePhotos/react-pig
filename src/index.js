@@ -31,7 +31,7 @@ export default class Pig extends Component {
     this.handleSelection = props.handleSelection || this.defaultHandleSelection;
     this.imageData = props.imageData;
     this.scaleOfImages = props.scaleOfImages || 1;
-
+    this.updateGroups = props.updateGroups || function (updatedGroups) {};
     // if sortFunc has been provided as a prop, use it
     if (props.sortFunc) this.imageData.sort(props.sortFunc);
     else if (props.sortByDate) this.imageData = sortByDate(this.imageData);
@@ -101,7 +101,8 @@ export default class Pig extends Component {
       settings: this.settings,
       latestYOffset: this.latestYOffset,
       imageData: this.imageData,
-      windowHeight: this.windowHeight
+      windowHeight: this.windowHeight,
+      updateGroups: this.updateGroups
     });
 
     this.setState({ renderedItems });
@@ -254,7 +255,6 @@ export default class Pig extends Component {
   renderFlat = item => this.renderTile(item);
 
   render() {
-      console.log(this.imageData)
     return (
       <div className={styles.output} ref={this.containerRef}>
         {this.state.renderedItems.map(item => {

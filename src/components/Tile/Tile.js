@@ -158,12 +158,13 @@ const Tile = React.memo(function Tile({
         />
       )}
       <div>
-        <div class={styles.overlaysTopLeft}>
+        <div className={styles.overlaysTopLeft}>
           {isSelectable && (
             <input
               type="checkbox"
-              class={styles.checkbox}
-              checked={isSelected}
+              className={styles.checkbox}
+              defaultChecked={isSelected}
+              
               onClick={(event) => {
                 event.stopPropagation();
                 handleSelection(item);
@@ -171,7 +172,7 @@ const Tile = React.memo(function Tile({
             ></input>
           )}
         </div>
-        <div class={styles.overlaysTopRight}>
+        <div className={styles.overlaysTopRight}>
           {undefined != Overlay && (<Overlay item={item} />)}
         </div>
       </div>

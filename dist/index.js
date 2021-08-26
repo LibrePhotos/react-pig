@@ -4828,17 +4828,17 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
     loop: true,
     playsInline: true
   }), /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("div", {
-    "class": styles$2.overlaysTopLeft
+    className: styles$2.overlaysTopLeft
   }, isSelectable && /*#__PURE__*/React__default['default'].createElement("input", {
     type: "checkbox",
-    "class": styles$2.checkbox,
-    checked: isSelected,
+    className: styles$2.checkbox,
+    defaultChecked: isSelected,
     onClick: function onClick(event) {
       event.stopPropagation();
       handleSelection(item);
     }
   })), /*#__PURE__*/React__default['default'].createElement("div", {
-    "class": styles$2.overlaysTopRight
+    className: styles$2.overlaysTopRight
   }, undefined != Overlay && /*#__PURE__*/React__default['default'].createElement(Overlay, {
     item: item
   }))));
@@ -4883,7 +4883,8 @@ function calcRenderableItems (_ref) {
       settings = _ref.settings,
       latestYOffset = _ref.latestYOffset,
       imageData = _ref.imageData,
-      windowHeight = _ref.windowHeight;
+      windowHeight = _ref.windowHeight,
+      updateGroups = _ref.updateGroups;
   // Get the top and bottom buffers heights  
   var bufferTop = scrollDirection === 'up' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight;
   var bufferBottom = scrollDirection === 'down' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight; // Now we compute the location of the top and bottom buffers
@@ -4898,23 +4899,20 @@ function calcRenderableItems (_ref) {
     // Here, we loop over every image, determine if it is inside our buffers
     var arrOfGroups = [];
     imageData.forEach(function (g) {
-      var filteredInGroup = g.items.filter(function (img) {
-        if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
-          return false;
-        } else {
-          return true;
-        }
-      }); // if the group has no items within it, don't render the group at all
+      if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
+        return;
+      }
 
-      if (!filteredInGroup.length) return;
       arrOfGroups.push({
-        items: filteredInGroup,
+        items: g.items,
         date: g.date,
         location: g.location,
         groupTranslateY: g.groupTranslateY,
         height: g.height
       });
-    });
+    }); //update visible groups
+
+    updateGroups(arrOfGroups);
     return arrOfGroups;
   } else {
     return imageData.filter(function (img) {
@@ -5305,7 +5303,10 @@ var Pig = /*#__PURE__*/function (_Component) {
     _this.selectable = props.selectable || false;
     _this.handleSelection = props.handleSelection || _this.defaultHandleSelection;
     _this.imageData = props.imageData;
-    _this.scaleOfImages = props.scaleOfImages || 1; // if sortFunc has been provided as a prop, use it
+    _this.scaleOfImages = props.scaleOfImages || 1;
+
+    _this.updateGroups = props.updateGroups || function (updatedGroups) {}; // if sortFunc has been provided as a prop, use it
+
 
     if (props.sortFunc) _this.imageData.sort(props.sortFunc);else if (props.sortByDate) _this.imageData = sortByDate_1(_this.imageData); // check grouping ability
 
@@ -5364,7 +5365,8 @@ var Pig = /*#__PURE__*/function (_Component) {
         settings: this.settings,
         latestYOffset: this.latestYOffset,
         imageData: this.imageData,
-        windowHeight: this.windowHeight
+        windowHeight: this.windowHeight,
+        updateGroups: this.updateGroups
       });
       this.setState({
         renderedItems: renderedItems
@@ -5435,7 +5437,6 @@ var Pig = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.imageData);
       return /*#__PURE__*/React__default['default'].createElement("div", {
         className: styles.output,
         ref: this.containerRef

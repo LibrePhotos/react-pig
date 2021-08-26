@@ -5,6 +5,7 @@ export default function ({
   latestYOffset,
   imageData,
   windowHeight,
+  updateGroups,
 }) {
   // Get the top and bottom buffers heights  
   const bufferTop = (scrollDirection === 'up') ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight
@@ -22,26 +23,21 @@ export default function ({
     // Here, we loop over every image, determine if it is inside our buffers
     const arrOfGroups = []
     imageData.forEach(g => {
-      const filteredInGroup = g.items.filter(img => {
-
-        if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
-          return false
-        } else {
-          return true
-        }
-      })
-
-      // if the group has no items within it, don't render the group at all
-      if (!filteredInGroup.length) return
-
+        if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
+          return
+        } 
+      
       arrOfGroups.push({
-        items: filteredInGroup,
+        items: g.items,
         date: g.date,
         location: g.location,
         groupTranslateY: g.groupTranslateY,
         height: g.height,
       })
     })
+
+    //update visible groups
+    updateGroups(arrOfGroups)
 
     return arrOfGroups
   } else {
