@@ -36,8 +36,10 @@ class App extends Component {
       <Pig
         imageData={imageData} // Array. Required.
         numberOfItems={500} // Number. Optional, set the number of Items if you only partially loaded the data
+        updateItems=(visibleItem) => {} // Function. Optional. Returns the visible Items / items in buffer for dynamically fetching items.
         scaleOfImage={3} // Number. Show more or less images. This value would show 3x more images
         groupByDate // Boolean. Optional. Groups images by 'date' value. And uses the first 'location' in the group for the heading text.
+        updateGroups=(visibleGroups) => {} // Function. Optional. Returns the visible groups / groups in buffer to dynamically fetch data for them 
         gridGap={10} // Integer. Optional. Defaults to 8
         expandedSize={1600} // Integer. Optional. Expanded image will be loaded in that size. Defaults to 1000
         thumbnailSize={25} // Integer. Optional. Thumbnail image will be loaded in that size. Defaults to 10
