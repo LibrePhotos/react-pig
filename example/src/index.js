@@ -6,6 +6,7 @@ import imageDataGrouped from "./jsons/imageData-grouped.json";
 import SelectablePig from "./components/SelectablePig";
 import DeletablePig from "./components/DeletablePig.js";
 import UpdatablePig from "./components/UpdatablePig";
+import IncompleteGroupedPig from "./components/IncompleteGroupedPig";
 import IncompletePig from "./components/IncompletePig";
 
 import 'semantic-ui-css/semantic.min.css';
@@ -14,10 +15,11 @@ import "./base.css";
 ReactDOM.render(
   <main className="main">
     {
+      /*
       <IncompletePig/>
-      
+      */
     }
-    {/* <Pig
+    { <Pig
       imageData={imageData}
       gridGap={8}
       bgColor="hsla(211, 50%, 98%)"
@@ -26,7 +28,7 @@ ReactDOM.render(
       selectable={true}
       breakpoint={800}
       scaleOfImages={3}
-    />*/ } 
+    /> } 
     
   </main>,
   document.getElementById("root")

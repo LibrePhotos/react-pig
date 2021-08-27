@@ -6,10 +6,12 @@ export default function ({
   imageData,
   windowHeight,
   updateGroups,
+  updateItems,
+  scaleOfImages
 }) {
   // Get the top and bottom buffers heights  
-  const bufferTop = (scrollDirection === 'up') ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight
-  const bufferBottom = (scrollDirection === 'down') ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight
+  const bufferTop = ((scrollDirection === 'up') ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
+  const bufferBottom = ((scrollDirection === 'down') ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
 
   // Now we compute the location of the top and bottom buffers
   // that is the top of the top buffer. If the bottom of an image is above that line, it will be removed.
@@ -37,18 +39,22 @@ export default function ({
       })
     })
 
-    //hook to update visible groups
+    //function to update visible groups
     updateGroups(arrOfGroups)
 
     return arrOfGroups
   } else {
-    return imageData.filter(img => {
+    var visibleItems = 
+    imageData.filter(img => {
       if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
         return false
       } else {
         return true
       }
     })
+    //function to update visible items
+    updateItems(visibleItems)
+    return visibleItems.filter(item => item.isTemp == false || item.isTemp == undefined)
   }
 
 }

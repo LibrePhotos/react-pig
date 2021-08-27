@@ -4884,10 +4884,12 @@ function calcRenderableItems (_ref) {
       latestYOffset = _ref.latestYOffset,
       imageData = _ref.imageData,
       windowHeight = _ref.windowHeight,
-      updateGroups = _ref.updateGroups;
+      updateGroups = _ref.updateGroups,
+      updateItems = _ref.updateItems,
+      scaleOfImages = _ref.scaleOfImages;
   // Get the top and bottom buffers heights  
-  var bufferTop = scrollDirection === 'up' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight;
-  var bufferBottom = scrollDirection === 'down' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight; // Now we compute the location of the top and bottom buffers
+  var bufferTop = (scrollDirection === 'up' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
+  var bufferBottom = (scrollDirection === 'down' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages; // Now we compute the location of the top and bottom buffers
   // that is the top of the top buffer. If the bottom of an image is above that line, it will be removed.
 
   var minTranslateYPlusHeight = latestYOffset - containerOffsetTop - bufferTop; // that is the bottom of the bottom buffer.  If the top of an image is
@@ -4911,17 +4913,22 @@ function calcRenderableItems (_ref) {
         groupTranslateY: g.groupTranslateY,
         height: g.height
       });
-    }); //hook to update visible groups
+    }); //function to update visible groups
 
     updateGroups(arrOfGroups);
     return arrOfGroups;
   } else {
-    return imageData.filter(function (img) {
+    var visibleItems = imageData.filter(function (img) {
       if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
         return false;
       } else {
         return true;
       }
+    }); //function to update visible items
+
+    updateItems(visibleItems);
+    return visibleItems.filter(function (item) {
+      return item.isTemp == false || item.isTemp == undefined;
     });
   }
 }
@@ -4955,7 +4962,8 @@ function computeLayout (_ref) {
       settings = _ref.settings,
       totalHeight = _ref.totalHeight,
       wrapperWidth = _ref.wrapperWidth,
-      scaleOfImages = _ref.scaleOfImages;
+      scaleOfImages = _ref.scaleOfImages,
+      numberOfItems = _ref.numberOfItems;
   // Compute the minimum aspect ratio that should be applied to the rows.
   var minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages); // State
 
@@ -4991,7 +4999,7 @@ function computeLayout (_ref) {
       //
       // NOTE: that does not manipulate the DOM, rather it just sets the
       //       style values on the ProgressiveImage instance. The DOM nodes
-      //       will be updated in doLayout.       
+      //       will be updated in doLayout.
 
 
       row.forEach(function (img) {
@@ -5014,7 +5022,56 @@ function computeLayout (_ref) {
       translateY += parseInt(rowHeight, 10) + settings.gridGap;
       translateX = 0;
     }
-  }); // No space below the last image
+  });
+
+  for (var i = imageData.length; i < numberOfItems; i++) {
+    row.push({
+      id: i,
+      isTemp: true
+    }); //assume aspect ratio is 1
+
+    rowAspectRatio += 1;
+
+    if (rowAspectRatio >= minAspectRatio || i + 1 === numberOfItems.length) {
+      (function () {
+        // Compute that row's height.
+        var totalDesiredWidthOfImages = wrapperWidth - settings.gridGap * (row.length - 1);
+        var rowHeight = totalDesiredWidthOfImages / rowAspectRatio; // Handles cases where we don't have enough images to fill a row
+
+        if (rowAspectRatio < minAspectRatio) {
+          rowHeight = totalDesiredWidthOfImages / minAspectRatio;
+        } // For each image in the row, compute the width, height, translateX,
+        // and translateY values, and set them (and the transition value we
+        // found above) on each image.
+        //
+        // NOTE: that does not manipulate the DOM, rather it just sets the
+        //       style values on the ProgressiveImage instance. The DOM nodes
+        //       will be updated in doLayout.
+
+
+        row.forEach(function (img) {
+          var imageWidth = rowHeight * img.aspectRatio;
+          tempImgData.push(_objectSpread$1(_objectSpread$1({}, img), {}, {
+            style: {
+              width: parseFloat(imageWidth.toFixed(3), 10),
+              height: parseFloat(rowHeight.toFixed(3), 10),
+              translateX: translateX,
+              translateY: translateY
+            }
+          })); // The next image is settings.gridGap pixels to the
+          // right of that image.
+
+          translateX += imageWidth + settings.gridGap;
+        }); // Reset our state variables for next row.
+
+        row = [];
+        rowAspectRatio = 0;
+        translateY += parseInt(rowHeight, 10) + settings.gridGap;
+        translateX = 0;
+      })();
+    }
+  } // No space below the last image
+
 
   totalHeight = translateY - settings.gridGap;
   return {
@@ -5323,9 +5380,12 @@ var Pig = /*#__PURE__*/function (_Component) {
     _this.selectable = props.selectable || false;
     _this.handleSelection = props.handleSelection || _this.defaultHandleSelection;
     _this.imageData = props.imageData;
+    _this.numberOfItems = props.numberOfItems || _this.imageData.length;
     _this.scaleOfImages = props.scaleOfImages || 1;
 
-    _this.updateGroups = props.updateGroups || function (updatedGroups) {}; // if sortFunc has been provided as a prop, use it
+    _this.updateGroups = props.updateGroups || function (visibleGroups) {};
+
+    _this.updateItems = props.updateItems || function (visibleItems) {}; // if sortFunc has been provided as a prop, use it
 
 
     if (props.sortFunc) _this.imageData.sort(props.sortFunc);else if (props.sortByDate) _this.imageData = sortByDate_1(_this.imageData); // check grouping ability
@@ -5386,7 +5446,9 @@ var Pig = /*#__PURE__*/function (_Component) {
         latestYOffset: this.latestYOffset,
         imageData: this.imageData,
         windowHeight: this.windowHeight,
-        updateGroups: this.updateGroups
+        updateGroups: this.updateGroups,
+        updateItems: this.updateItems,
+        scaleOfImages: this.scaleOfImages
       });
       this.setState({
         renderedItems: renderedItems
@@ -5416,7 +5478,8 @@ var Pig = /*#__PURE__*/function (_Component) {
           minAspectRatio: this.minAspectRatio,
           imageData: this.imageData,
           settings: this.settings,
-          scaleOfImages: this.scaleOfImages
+          scaleOfImages: this.scaleOfImages,
+          numberOfItems: this.numberOfItems
         }),
             _imageData = _computeLayout.imageData,
             _newTotalHeight = _computeLayout.newTotalHeight;

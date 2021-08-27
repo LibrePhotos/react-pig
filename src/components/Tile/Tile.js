@@ -19,19 +19,19 @@ const Tile = React.memo(function Tile({
   windowHeight,
   scrollSpeed,
   settings,
-  overlay
+  overlay,
 }) {
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
-  const isVideo =
+  const isVideo = (
     item.url.includes(".mp4") ||
     item.url.includes(".mov") ||
-    (item.type !== undefined && item.type.includes("video"));
+    (item.type !== undefined && item.type.includes("video")));
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
-  const Overlay = overlay
+  const Overlay = overlay;
 
   const { calcWidth, calcHeight, offsetX, offsetY } = getTileMeasurements({
     item,
@@ -150,8 +150,8 @@ const Tile = React.memo(function Tile({
         <video
           className={styles.pigImg}
           src={getUrl(item.url, settings.expandedSize)}
-          onMouseOver={event => event.target.play()}
-          onMouseOut={event => event.target.pause()}
+          onMouseOver={(event) => event.target.play()}
+          onMouseOut={(event) => event.target.pause()}
           muted
           loop
           playsInline
@@ -164,7 +164,6 @@ const Tile = React.memo(function Tile({
               type="checkbox"
               className={styles.checkbox}
               defaultChecked={isSelected}
-              
               onClick={(event) => {
                 event.stopPropagation();
                 handleSelection(item);
@@ -173,7 +172,7 @@ const Tile = React.memo(function Tile({
           )}
         </div>
         <div className={styles.overlaysTopRight}>
-          {undefined != Overlay && (<Overlay item={item} />)}
+          {undefined != Overlay && <Overlay item={item} />}
         </div>
       </div>
     </animated.button>
