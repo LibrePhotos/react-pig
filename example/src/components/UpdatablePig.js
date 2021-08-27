@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Pig from "pig-react";
-import imageDataGrouped from "./imageData-grouped.json";
+import imageDataGrouped from "../jsons/imageData-grouped.json";
 
 export default class UpdatablePig extends Component {
   constructor(props) {

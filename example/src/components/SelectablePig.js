@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Pig from "pig-react";
-import imageData from "./imageData.json";
+import imageData from "../jsons/imageData.json";
 
 export default class SelectablePig extends Component {
   constructor(props) {

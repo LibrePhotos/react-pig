@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Pig from "pig-react";
-import imageData from "./imageData.json";
-import imageDataGrouped from "./imageData-grouped.json";
-import SelectablePig from "./SelectablePig";
-import DeletablePig from "./DeletablePig.js";
-import UpdatablePig from "./UpdatablePig";
-import IncompletePig from "./IncompletePig";
+import imageData from "./jsons/imageData.json";
+import imageDataGrouped from "./jsons/imageData-grouped.json";
+import SelectablePig from "./components/SelectablePig";
+import DeletablePig from "./components/DeletablePig.js";
+import UpdatablePig from "./components/UpdatablePig";
+import IncompletePig from "./components/IncompletePig";
 
 import 'semantic-ui-css/semantic.min.css';
 import "./base.css";

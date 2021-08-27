@@ -831,7 +831,8 @@
     {
         "date": "2 October 2017",
         "location": "Istanbul - Turkey",
-        "notLoadedData": true,
+        "incomplete": true,
+        "numberOfItems": 20,
         "items": [
             
         ]
