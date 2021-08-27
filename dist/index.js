@@ -4899,6 +4899,7 @@ function calcRenderableItems (_ref) {
     // Here, we loop over every image, determine if it is inside our buffers
     var arrOfGroups = [];
     imageData.forEach(function (g) {
+      // If the group is not within the buffer then remove it
       if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
         return;
       }
@@ -4910,7 +4911,7 @@ function calcRenderableItems (_ref) {
         groupTranslateY: g.groupTranslateY,
         height: g.height
       });
-    }); //update visible groups
+    }); //hook to update visible groups
 
     updateGroups(arrOfGroups);
     return arrOfGroups;
@@ -5037,6 +5038,7 @@ function computeLayoutGroups (_ref) {
 
   var tempGroupData = [];
   var translateY = 0;
+  console.log(imageData);
   imageData.forEach(function (g) {
     var groupHeight = 0;
     var groupTranslateY = 0;
@@ -5045,65 +5047,83 @@ function computeLayoutGroups (_ref) {
     var translateX = 0; // The current translateX value that we are at
 
     var rowAspectRatio = 0; // The aspect ratio of the row we are building
-    // Loop through all our images, building them up into rows and computing
-    // the working rowAspectRatio.
 
-    var tempImgData = [];
-    g.items.forEach(function (image, index) {
-      if (index === 0) {
-        groupTranslateY = translateY;
-      }
+    var tempImgData = []; //if images for a group are not loaded, then calculate the height of the group based on the number of images
 
-      row.push(image); // When the rowAspectRatio exceeeds the minimum acceptable aspect ratio,
-      // or when we're out of images, we say that we have all the images we
-      // need for that row, and compute the style values for each of these
-      // images.
+    if (g.incomplete) {
+      groupTranslateY = translateY;
+      var numberOfImages = parseInt(g.numberOfItems); //assume aspect ratio of 1 per image
 
-      rowAspectRatio += image.aspectRatio;
+      var numberOfRows = numberOfImages / minAspectRatio;
+      var numberOfImagesPerRow = numberOfImages / numberOfRows;
+      var totalDesiredWidthOfImages = wrapperWidth - settings.gridGap * numberOfImagesPerRow;
+      var rowHeight = totalDesiredWidthOfImages / minAspectRatio;
+      translateY += Math.round(rowHeight + settings.gridGap) * numberOfRows;
+      groupHeight += Math.round(rowHeight + settings.gridGap) * numberOfRows;
+    } else {
+      // Loop through all our images, building them up into rows and computing
+      // the working rowAspectRatio.
+      g.items.forEach(function (image, index) {
+        if (index === 0) {
+          groupTranslateY = translateY;
+        }
 
-      if (rowAspectRatio >= minAspectRatio || index + 1 === g.items.length) {
-        // Compute that row's height.
-        var totalDesiredWidthOfImages = wrapperWidth - settings.gridGap * (row.length - 1);
-        var rowHeight = totalDesiredWidthOfImages / rowAspectRatio; // Handles cases where we don't have enough images to fill a row
+        row.push(image); // When the rowAspectRatio exceeeds the minimum acceptable aspect ratio,
+        // or when we're out of images, we say that we have all the images we
+        // need for that row, and compute the style values for each of these
+        // images.
 
-        if (rowAspectRatio < minAspectRatio) {
-          rowHeight = totalDesiredWidthOfImages / minAspectRatio;
-        } // For each image in the row, compute the width, height, translateX,
-        // and translateY values, and set them (and the transition value we
-        // found above) on each image.
-        //
-        // NOTE: that does not manipulate the DOM, rather it just sets the
-        //       style values on the ProgressiveImage instance. The DOM nodes
-        //       will be updated in doLayout.       
+        rowAspectRatio += image.aspectRatio;
+
+        if (rowAspectRatio >= minAspectRatio || index + 1 === g.items.length) {
+          // Compute that row's height.
+          var _totalDesiredWidthOfImages = wrapperWidth - settings.gridGap * (row.length - 1);
+
+          var _rowHeight = _totalDesiredWidthOfImages / rowAspectRatio; // Handles cases where we don't have enough images to fill a row
 
 
-        row.forEach(function (img) {
-          var imageWidth = rowHeight * img.aspectRatio;
-          tempImgData.push(_objectSpread(_objectSpread({}, img), {}, {
-            style: {
-              width: imageWidth,
-              height: rowHeight,
-              translateX: translateX,
-              translateY: translateY + groupTitleHeight
-            }
-          })); // The next image is settings.gridGap pixels to the right of that image
+          if (rowAspectRatio < minAspectRatio) {
+            _rowHeight = _totalDesiredWidthOfImages / minAspectRatio;
+          } // For each image in the row, compute the width, height, translateX,
+          // and translateY values, and set them (and the transition value we
+          // found above) on each image.
+          //
+          // NOTE: that does not manipulate the DOM, rather it just sets the
+          //       style values on the ProgressiveImage instance. The DOM nodes
+          //       will be updated in doLayout.
 
-          translateX += Math.round(imageWidth + settings.gridGap);
-        }); // Reset our state variables for next row.
 
-        row = [];
-        rowAspectRatio = 0;
-        translateX = 0;
-        translateY += Math.round(rowHeight + settings.gridGap);
-        groupHeight += Math.round(rowHeight + settings.gridGap);
-      }
-    });
+          row.forEach(function (img) {
+            var imageWidth = _rowHeight * img.aspectRatio;
+            tempImgData.push(_objectSpread(_objectSpread({}, img), {}, {
+              style: {
+                width: imageWidth,
+                height: _rowHeight,
+                translateX: translateX,
+                translateY: translateY + groupTitleHeight
+              }
+            })); // The next image is settings.gridGap pixels to the right of that image
+
+            translateX += Math.round(imageWidth + settings.gridGap);
+          }); // Reset our state variables for next row.
+
+          row = [];
+          rowAspectRatio = 0;
+          translateX = 0;
+          translateY += Math.round(_rowHeight + settings.gridGap);
+          groupHeight += Math.round(_rowHeight + settings.gridGap);
+        }
+      });
+    }
+
     var groupGap = wrapperWidth < settings.breakpoint ? settings.groupGapSm : settings.groupGapLg;
     translateY += groupGap + groupTitleHeight; // create space between groups to insert the title
 
     tempGroupData.push({
       date: g.date,
       location: g.location,
+      incomplete: g.incomplete,
+      numberOfItems: g.numberOfItems,
       groupTranslateY: groupTranslateY,
       items: tempImgData,
       height: groupHeight + groupTitleHeight

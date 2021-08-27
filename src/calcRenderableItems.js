@@ -23,6 +23,7 @@ export default function ({
     // Here, we loop over every image, determine if it is inside our buffers
     const arrOfGroups = []
     imageData.forEach(g => {
+        // If the group is not within the buffer then remove it
         if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
           return
         } 
@@ -36,7 +37,7 @@ export default function ({
       })
     })
 
-    //update visible groups
+    //hook to update visible groups
     updateGroups(arrOfGroups)
 
     return arrOfGroups

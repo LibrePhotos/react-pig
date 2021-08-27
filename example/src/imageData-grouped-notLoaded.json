@@ -1,0 +1,136 @@
+[
+  {
+    "date": "28 October 2017",
+    "location": "",
+    "items": [
+      {
+        "id": "agg3f3hjs1cjefdqinip",
+        "dominantColor": "#866851",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551093957/demo/agg3f3hjs1cjefdqinip.jpg",
+        "location": "",
+        "date": "28 October 2017",
+        "birthTime": "2019-02-23T02:44:27.038Z",
+        "aspectRatio": 1.5
+      },
+      {
+        "id": "hlivz86jbxr8ndwpsewq",
+        "dominantColor": "#221611",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551093978/demo/hlivz86jbxr8ndwpsewq.jpg",
+        "location": "",
+        "date": "28 October 2017",
+        "birthTime": "2019-02-22T17:57:34.767Z",
+        "aspectRatio": 1.5
+      }
+    ]
+  },
+  {
+    "date": "22 October 2017",
+    "location": "",
+    "items": [
+      {
+        "id": "irktpya1mrvgnfecgpyv",
+        "dominantColor": "#0C0E14",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551093935/demo/irktpya1mrvgnfecgpyv.jpg",
+        "location": "",
+        "date": "22 October 2017",
+        "birthTime": "2019-02-21T19:52:06.843Z",
+        "aspectRatio": 1.5,
+        "favorited": true
+      }
+    ]
+  },
+  {
+    "date": "21 October 2017",
+    "location": "Barcelona - El Gòtic - Plaça d'Isidre Nonell",
+    "items": [
+      {
+        "id": "qdifrx9bppezrjl5rvus",
+        "dominantColor": "#11121A",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551095045/demo/qdifrx9bppezrjl5rvus.jpg",
+        "location": "Barcelona - El Gòtic - Plaça d'Isidre Nonell",
+        "date": "21 October 2017",
+        "birthTime": "2019-02-21T19:52:57.054Z",
+        "aspectRatio": 1.5
+      },
+      {
+        "id": "lqau32u6l93ifvfrohaf",
+        "dominantColor": "#0C0D15",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551095068/demo/lqau32u6l93ifvfrohaf.jpg",
+        "location": "Barcelona - El Gòtic - Plaça d'Isidre Nonell",
+        "date": "21 October 2017",
+        "birthTime": "2019-02-21T19:52:56.568Z",
+        "aspectRatio": 1.5
+      }
+    ]
+  },
+  {
+    "date": "20 October 2017",
+    "location": "Barcelona - El Gòtic - Carrer de la Ciutat",
+    "items": [
+      {
+        "id": "tivz9zwbkhzdjhco9kei",
+        "dominantColor": "#090808",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551094955/demo/tivz9zwbkhzdjhco9kei.jpg",
+        "location": "Barcelona - El Gòtic - Carrer de la Ciutat",
+        "date": "20 October 2017",
+        "birthTime": "2019-02-21T19:55:14.314Z",
+        "aspectRatio": 1.5
+      },
+      {
+        "id": "usqrvz7ybv7zcrlty5gk",
+        "dominantColor": "#CDAB7E",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551094976/demo/usqrvz7ybv7zcrlty5gk.jpg",
+        "location": "Barcelona - El Gòtic - Carrer de la Ciutat",
+        "date": "20 October 2017",
+        "birthTime": "2019-02-21T19:55:12.830Z",
+        "aspectRatio": 1.5
+      },
+      {
+        "id": "dtfdnpgxedkw2mi16tje",
+        "dominantColor": "#945C0D",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551094997/demo/dtfdnpgxedkw2mi16tje.jpg",
+        "location": "Barcelona - El Gòtic - Carrer de la Ciutat",
+        "date": "20 October 2017",
+        "birthTime": "2019-02-21T19:54:16.973Z",
+        "aspectRatio": 0.667
+      },
+      {
+        "id": "ubbacggztejxaqq7w9ba",
+        "dominantColor": "#826E4A",
+        "url": "http://res.cloudinary.com/dizrcuwkb/image/upload/h_{{HEIGHT}}/v1551095020/demo/ubbacggztejxaqq7w9ba.jpg",
+        "location": "Barcelona - El Gòtic - Carrer de la Ciutat",
+        "date": "20 October 2017",
+        "birthTime": "2019-02-21T19:54:12.374Z",
+        "aspectRatio": 1.5
+      }
+    ]
+  },
+  {
+    "date": "5 October 2017",
+    "location": "Istanbul - Turkey",
+    "incomplete": true,
+    "numberOfItems": 20,
+    "items": []
+  },
+  {
+    "date": "4 October 2017",
+    "location": "Istanbul - Turkey",
+    "incomplete": true,
+    "numberOfItems": 15,
+    "items": []
+  },
+  {
+    "date": "3 October 2017",
+    "location": "Istanbul - Turkey",
+    "incomplete": true,
+    "numberOfItems": 22,
+    "items": []
+  },
+  {
+    "date": "2 October 2017",
+    "location": "Istanbul - Turkey",
+    "incomplete": true,
+    "numberOfItems": 20,
+    "items": []
+  }
+]
