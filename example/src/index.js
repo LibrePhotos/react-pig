@@ -9,27 +9,28 @@ import UpdatablePig from "./components/UpdatablePig";
 import IncompleteGroupedPig from "./components/IncompleteGroupedPig";
 import IncompletePig from "./components/IncompletePig";
 
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import "./base.css";
+import Overlay from "./components/Overlay";
 
 ReactDOM.render(
   <main className="main">
-    {
-      /*
+    {/*
       <IncompletePig/>
-      */
+      */}
+    {
+      <Pig
+        imageData={imageData}
+        gridGap={8}
+        bgColor="hsla(211, 50%, 98%)"
+        groupGapLg={50}
+        groupGapSm={20}
+        selectable={true}
+        breakpoint={800}
+        scaleOfImages={3}
+        overlay={Overlay}
+      />
     }
-    { <Pig
-      imageData={imageData}
-      gridGap={8}
-      bgColor="hsla(211, 50%, 98%)"
-      groupGapLg={50}
-      groupGapSm={20}
-      selectable={true}
-      breakpoint={800}
-      scaleOfImages={3}
-    /> } 
-    
   </main>,
   document.getElementById("root")
 );

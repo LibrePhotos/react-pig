@@ -24,10 +24,10 @@ const Tile = React.memo(function Tile({
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
-  const isVideo = (
+  const isVideo =
     item.url.includes(".mp4") ||
     item.url.includes(".mov") ||
-    (item.type !== undefined && item.type.includes("video")));
+    (item.type !== undefined && item.type.includes("video"));
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
@@ -129,7 +129,8 @@ const Tile = React.memo(function Tile({
           }`}
           src={getUrl(item.url, getImageHeight(containerWidth))}
           onCanPlay={() => setFullSizeLoaded(true)}
-          autoPlay
+          onMouseOver={(event) => event.target.play()}
+          onMouseOut={(event) => event.target.pause()}
           muted
           loop
           playsInline
