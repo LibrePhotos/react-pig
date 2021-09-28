@@ -11,13 +11,13 @@ export default function ({
 }) {
   // Get the top and bottom buffers heights
   const bufferTop =
-    (scrollDirection === "up"
+    scrollDirection === "up"
       ? settings.primaryImageBufferHeight
-      : settings.secondaryImageBufferHeight) * scaleOfImages;
+      : settings.secondaryImageBufferHeight;
   const bufferBottom =
-    (scrollDirection === "down"
+    scrollDirection === "down"
       ? settings.primaryImageBufferHeight
-      : settings.secondaryImageBufferHeight) * scaleOfImages;
+      : settings.secondaryImageBufferHeight;
 
   // Now we compute the location of the top and bottom buffers
   // that is the top of the top buffer. If the bottom of an image is above that line, it will be removed.

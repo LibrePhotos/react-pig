@@ -4863,11 +4863,11 @@ function calcRenderableItems (_ref) {
       imageData = _ref.imageData,
       windowHeight = _ref.windowHeight,
       updateGroups = _ref.updateGroups,
-      updateItems = _ref.updateItems,
-      scaleOfImages = _ref.scaleOfImages;
+      updateItems = _ref.updateItems;
+      _ref.scaleOfImages;
   // Get the top and bottom buffers heights
-  var bufferTop = (scrollDirection === "up" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
-  var bufferBottom = (scrollDirection === "down" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages; // Now we compute the location of the top and bottom buffers
+  var bufferTop = scrollDirection === "up" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight;
+  var bufferBottom = scrollDirection === "down" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight; // Now we compute the location of the top and bottom buffers
   // that is the top of the top buffer. If the bottom of an image is above that line, it will be removed.
 
   var minTranslateYPlusHeight = latestYOffset - containerOffsetTop - bufferTop; // that is the bottom of the bottom buffer.  If the top of an image is
