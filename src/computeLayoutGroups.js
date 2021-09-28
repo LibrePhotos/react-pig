@@ -27,10 +27,10 @@ export default function ({
       groupTranslateY = translateY;
       const numberOfImages = parseInt(g.numberOfItems);
       //assume aspect ratio of 1 per image
-      let numberOfRows =  numberOfImages / minAspectRatio;
+      let numberOfRows = numberOfImages / minAspectRatio;
       let numberOfImagesPerRow = numberOfImages / numberOfRows;
       let totalDesiredWidthOfImages =
-        wrapperWidth - settings.gridGap * (numberOfImagesPerRow);
+        wrapperWidth - settings.gridGap * numberOfImagesPerRow;
       let rowHeight = totalDesiredWidthOfImages / minAspectRatio;
       translateY += Math.round(rowHeight + settings.gridGap) * numberOfRows;
       groupHeight += Math.round(rowHeight + settings.gridGap) * numberOfRows;
@@ -101,10 +101,7 @@ export default function ({
     translateY += groupGap + groupTitleHeight; // create space between groups to insert the title
 
     tempGroupData.push({
-      date: g.date,
-      location: g.location,
-      incomplete: g.incomplete,
-      numberOfItems: g.numberOfItems,
+      ...g,
       groupTranslateY: groupTranslateY,
       items: tempImgData,
       height: groupHeight + groupTitleHeight,

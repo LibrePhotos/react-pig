@@ -4892,9 +4892,9 @@ function calcRenderableItems (_ref) {
       updateGroups = _ref.updateGroups,
       updateItems = _ref.updateItems,
       scaleOfImages = _ref.scaleOfImages;
-  // Get the top and bottom buffers heights  
-  var bufferTop = (scrollDirection === 'up' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
-  var bufferBottom = (scrollDirection === 'down' ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages; // Now we compute the location of the top and bottom buffers
+  // Get the top and bottom buffers heights
+  var bufferTop = (scrollDirection === "up" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages;
+  var bufferBottom = (scrollDirection === "down" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight) * scaleOfImages; // Now we compute the location of the top and bottom buffers
   // that is the top of the top buffer. If the bottom of an image is above that line, it will be removed.
 
   var minTranslateYPlusHeight = latestYOffset - containerOffsetTop - bufferTop; // that is the bottom of the bottom buffer.  If the top of an image is
@@ -4911,13 +4911,7 @@ function calcRenderableItems (_ref) {
         return;
       }
 
-      arrOfGroups.push({
-        items: g.items,
-        date: g.date,
-        location: g.location,
-        groupTranslateY: g.groupTranslateY,
-        height: g.height
-      });
+      arrOfGroups.push(g);
     }); //function to update visible groups
 
     updateGroups(arrOfGroups);
@@ -5181,15 +5175,11 @@ function computeLayoutGroups (_ref) {
     var groupGap = wrapperWidth < settings.breakpoint ? settings.groupGapSm : settings.groupGapLg;
     translateY += groupGap + groupTitleHeight; // create space between groups to insert the title
 
-    tempGroupData.push({
-      date: g.date,
-      location: g.location,
-      incomplete: g.incomplete,
-      numberOfItems: g.numberOfItems,
+    tempGroupData.push(_objectSpread(_objectSpread({}, g), {}, {
       groupTranslateY: groupTranslateY,
       items: tempImgData,
       height: groupHeight + groupTitleHeight
-    });
+    }));
   }); // No space below the last image
 
   totalHeight = translateY - settings.gridGap;
