@@ -39,7 +39,17 @@ export default function ({
       ) {
         return;
       }
-
+      // Only add images of the group that are within the buffer
+      g.items = g.items.filter((img) => {
+        if (
+          img.style.translateY + img.style.height < minTranslateYPlusHeight ||
+          img.style.translateY > maxTranslateY
+        ) {
+          return false;
+        } else {
+          return true;
+        }
+      });
       arrOfGroups.push(g);
     });
 

@@ -14,7 +14,6 @@ import getScrollSpeed from "./utils/getScrollSpeed";
 
 import styles from "./styles.css";
 
-
 export default class Pig extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +31,7 @@ export default class Pig extends Component {
     this.imageData = props.imageData;
     this.numberOfItems = props.numberOfItems || this.imageData.length;
     this.scaleOfImages = props.scaleOfImages || 1;
-    this.updateGroups = props.updateGroups || function (visibleGroups) {};   
+    this.updateGroups = props.updateGroups || function (visibleGroups) {};
     this.updateItems = props.updateItems || function (visibleItems) {};
     // if sortFunc has been provided as a prop, use it
     if (props.sortFunc) this.imageData.sort(props.sortFunc);
@@ -57,9 +56,9 @@ export default class Pig extends Component {
       renderedItems: [],
       selectedItems: [],
       scrollSpeed: "slow",
-      activeTileUrl: null
-    }
-    
+      activeTileUrl: null,
+    };
+
     this.scrollThrottleMs = 300;
     (this.windowHeight =
       typeof window !== "undefined" ? window.innerHeight : 1000), // arbitrary height
@@ -83,7 +82,7 @@ export default class Pig extends Component {
       groupByDate: props.groupByDate,
       breakpoint: props.breakpoint,
       groupGapSm: props.groupGapSm,
-      groupGapLg: props.groupGapLg
+      groupGapLg: props.groupGapLg,
     };
 
     if (typeof window === "undefined") return;
@@ -102,7 +101,7 @@ export default class Pig extends Component {
       scrollDirection: this.scrollDirection,
       settings: this.settings,
       latestYOffset: this.latestYOffset,
-      imageData: this.imageData,
+      imageData: imageData,
       windowHeight: this.windowHeight,
       updateGroups: this.updateGroups,
       updateItems: this.updateItems,
@@ -125,7 +124,7 @@ export default class Pig extends Component {
       const scrollSpeed = getScrollSpeed(
         this.latestYOffset,
         this.scrollThrottleMs,
-        scrollSpeed => {
+        (scrollSpeed) => {
           this.setState({ scrollSpeed }); // scroll idle callback
         }
       );
@@ -146,14 +145,14 @@ export default class Pig extends Component {
   };
 
   defaultHandleSelection = (item) => {
-    console.log(item)
+    console.log(item);
     var newSelectedItems = this.state.selectedItems;
     if (newSelectedItems.includes(item)) {
-      newSelectedItems = newSelectedItems.filter(value => value !== item);
+      newSelectedItems = newSelectedItems.filter((value) => value !== item);
     } else {
       newSelectedItems = newSelectedItems.concat(item);
     }
-    this.setState({selectedItems : newSelectedItems});
+    this.setState({ selectedItems: newSelectedItems });
   };
 
   defaultHandleClick = (event, item) => {
@@ -165,7 +164,7 @@ export default class Pig extends Component {
 
     this.setState({
       // if Tile is already active, deactivate it
-      activeTileUrl: item.url !== this.state.activeTileUrl ? item.url : null
+      activeTileUrl: item.url !== this.state.activeTileUrl ? item.url : null,
     });
   };
 
@@ -197,13 +196,13 @@ export default class Pig extends Component {
       return imageData;
     }
   }
-  
+
   componentDidUpdate(prevProps) {
-      if (this.props != prevProps) {
-        this.imageData = this.props.imageData;
-        this.imageData = this.getUpdatedImageLayout();
-        this.setRenderedItems(this.imageData);
-      }
+    if (this.props != prevProps) {
+      this.imageData = this.props.imageData;
+      this.imageData = this.getUpdatedImageLayout();
+      this.setRenderedItems(this.imageData);
+    }
   }
 
   componentDidMount() {
@@ -224,7 +223,7 @@ export default class Pig extends Component {
     window.removeEventListener("resize", this.debouncedResize);
   }
 
-  renderTile = item => (
+  renderTile = (item) => (
     <Tile
       key={item.url}
       useLqip={this.props.useLqip}
@@ -237,7 +236,13 @@ export default class Pig extends Component {
       handleClick={this.handleClick}
       handleSelection={this.handleSelection}
       selectable={this.selectable}
-      selected={this.props.selectedItems ? this.props.selectedItems.find(selectedItem => selectedItem.id === item.id) : this.state.selectedItems.includes(item)}
+      selected={
+        this.props.selectedItems
+          ? this.props.selectedItems.find(
+              (selectedItem) => selectedItem.id === item.id
+            )
+          : this.state.selectedItems.includes(item)
+      }
       activeTileUrl={this.state.activeTileUrl}
       settings={this.settings}
       thumbnailSize={this.props.thumbnailSize}
@@ -246,23 +251,24 @@ export default class Pig extends Component {
     />
   );
 
-  renderGroup = group => (
+  renderGroup = (group) => (
     <React.Fragment key={group.date}>
       <GroupHeader
+        key={group.date}
         settings={this.settings}
         group={group}
         activeTileUrl={this.state.activeTileUrl}
       />
-      {group.items.map(item => this.renderTile(item))}
+      {group.items.map((item) => this.renderTile(item))}
     </React.Fragment>
   );
 
-  renderFlat = item => this.renderTile(item);
+  renderFlat = (item) => this.renderTile(item);
 
   render() {
     return (
       <div className={styles.output} ref={this.containerRef}>
-        {this.state.renderedItems.map(item => {
+        {this.state.renderedItems.map((item) => {
           if (this.settings.groupByDate) {
             return this.renderGroup(item);
           } else {
@@ -286,7 +292,7 @@ Pig.defaultProps = {
   groupGapSm: 50,
   groupGapLg: 50,
   gridGap: 8,
-  bgColor: "#fff"
+  bgColor: "#fff",
 };
 
 Pig.propTypes = {
@@ -303,5 +309,5 @@ Pig.propTypes = {
   breakpoint: PropTypes.number,
   sortFunc: PropTypes.func,
   expandedSize: PropTypes.number,
-  thumbnailSize: PropTypes.number
+  thumbnailSize: PropTypes.number,
 };

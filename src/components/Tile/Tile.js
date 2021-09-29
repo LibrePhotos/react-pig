@@ -86,14 +86,14 @@ const Tile = React.memo(function Tile({
           ? `${settings.gridGap}px solid ${settings.bgColor}`
           : null,
         backgroundColor: item.dominantColor,
-        zIndex: zIndex.interpolate((t) => Math.round(t)),
-        width: width.interpolate((t) => t),
-        height: height.interpolate((t) => t),
-        marginLeft: marginLeft.interpolate((t) => t),
-        marginRight: marginRight.interpolate((t) => t),
-        marginTop: marginTop.interpolate((t) => t),
-        marginBottom: marginBottom.interpolate((t) => t),
-        transform: transform.interpolate((t) => t),
+        zIndex: zIndex.to((t) => Math.round(t)),
+        width: width.to((t) => t),
+        height: height.to((t) => t),
+        marginLeft: marginLeft.to((t) => t),
+        marginRight: marginRight.to((t) => t),
+        marginTop: marginTop.to((t) => t),
+        marginBottom: marginBottom.to((t) => t),
+        transform: transform.to((t) => t),
       }}
     >
       {useLqip && (

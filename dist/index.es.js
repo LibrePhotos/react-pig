@@ -4723,28 +4723,28 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
     style: {
       outline: isExpanded ? "".concat(settings.gridGap, "px solid ").concat(settings.bgColor) : null,
       backgroundColor: item.dominantColor,
-      zIndex: zIndex.interpolate(function (t) {
+      zIndex: zIndex.to(function (t) {
         return Math.round(t);
       }),
-      width: width.interpolate(function (t) {
+      width: width.to(function (t) {
         return t;
       }),
-      height: height.interpolate(function (t) {
+      height: height.to(function (t) {
         return t;
       }),
-      marginLeft: marginLeft.interpolate(function (t) {
+      marginLeft: marginLeft.to(function (t) {
         return t;
       }),
-      marginRight: marginRight.interpolate(function (t) {
+      marginRight: marginRight.to(function (t) {
         return t;
       }),
-      marginTop: marginTop.interpolate(function (t) {
+      marginTop: marginTop.to(function (t) {
         return t;
       }),
-      marginBottom: marginBottom.interpolate(function (t) {
+      marginBottom: marginBottom.to(function (t) {
         return t;
       }),
-      transform: transform.interpolate(function (t) {
+      transform: transform.to(function (t) {
         return t;
       })
     }
@@ -4882,8 +4882,16 @@ function calcRenderableItems (_ref) {
       // If the group is not within the buffer then remove it
       if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
         return;
-      }
+      } // Only add images of the group that are within the buffer
 
+
+      g.items = g.items.filter(function (img) {
+        if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
+          return false;
+        } else {
+          return true;
+        }
+      });
       arrOfGroups.push(g);
     }); //function to update visible groups
 
@@ -5328,6 +5336,7 @@ var Pig = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/React__default.createElement(React__default.Fragment, {
         key: group.date
       }, /*#__PURE__*/React__default.createElement(GroupHeader, {
+        key: group.date,
         settings: _this.settings,
         group: group,
         activeTileUrl: _this.state.activeTileUrl
@@ -5412,7 +5421,7 @@ var Pig = /*#__PURE__*/function (_Component) {
         scrollDirection: this.scrollDirection,
         settings: this.settings,
         latestYOffset: this.latestYOffset,
-        imageData: this.imageData,
+        imageData: imageData,
         windowHeight: this.windowHeight,
         updateGroups: this.updateGroups,
         updateItems: this.updateItems,
