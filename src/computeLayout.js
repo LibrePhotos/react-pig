@@ -114,7 +114,7 @@ export default function ({
       //       will be updated in doLayout.
 
       row.forEach((img) => {
-        const imageWidth = rowHeight * img.aspectRatio;
+        const imageWidth = rowHeight;
 
         tempImgData.push({
           ...img,

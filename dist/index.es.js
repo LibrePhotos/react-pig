@@ -5030,7 +5030,7 @@ function computeLayout (_ref) {
 
 
         row.forEach(function (img) {
-          var imageWidth = rowHeight * img.aspectRatio;
+          var imageWidth = rowHeight;
           tempImgData.push(_objectSpread$1(_objectSpread$1({}, img), {}, {
             style: {
               width: parseFloat(imageWidth.toFixed(3), 10),
