@@ -5158,6 +5158,30 @@ styleInject(css_248z);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function addTempElementsToGroups(photosGroupedByDate) {
+  photosGroupedByDate.forEach(function (group) {
+    for (var i = 0; i < group.numberOfItems; i++) {
+      group.items.push({
+        id: i,
+        aspectRatio: 1,
+        isTemp: true
+      });
+    }
+  });
+}
+function addTempElementsToFlatList(photosCount) {
+  var tempPhotos = [];
+
+  for (var i = 0; i < photosCount; i++) {
+    tempPhotos.push({
+      id: i,
+      aspectRatio: 1,
+      isTemp: true
+    });
+  }
+
+  return tempPhotos;
+}
 
 var Pig = /*#__PURE__*/function (_Component) {
   _inherits(Pig, _Component);
@@ -5479,4 +5503,5 @@ Pig.propTypes = {
 };
 
 export default Pig;
+export { addTempElementsToFlatList, addTempElementsToGroups };
 //# sourceMappingURL=index.es.js.map
