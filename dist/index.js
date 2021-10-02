@@ -5459,6 +5459,9 @@ var Pig = /*#__PURE__*/function (_Component) {
         this.imageData = this.getUpdatedImageLayout();
         this.container.style.height = this.totalHeight + "px"; // set the container height again based on new layout
 
+        this.containerWidth = this.container.offsetWidth;
+        this.containerOffsetTop = this.container.offsetTop;
+        this.windowHeight = window.innerHeight;
         this.setRenderedItems(this.imageData);
       }
     }
