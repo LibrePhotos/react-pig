@@ -20,7 +20,8 @@ ReactDOM.render(
       */}
     {
       <Pig
-        imageData={imageData}
+        imageData={imageDataGrouped}
+        groupByDate
         gridGap={8}
         bgColor="hsla(211, 50%, 98%)"
         groupGapLg={50}

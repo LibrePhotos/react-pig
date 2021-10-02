@@ -4894,7 +4894,6 @@ function calcRenderableItems (_ref) {
       windowHeight = _ref.windowHeight,
       updateGroups = _ref.updateGroups,
       updateItems = _ref.updateItems;
-      _ref.scaleOfImages;
   // Get the top and bottom buffers heights
   var bufferTop = scrollDirection === "up" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight;
   var bufferBottom = scrollDirection === "down" ? settings.primaryImageBufferHeight : settings.secondaryImageBufferHeight; // Now we compute the location of the top and bottom buffers
@@ -4912,16 +4911,8 @@ function calcRenderableItems (_ref) {
       // If the group is not within the buffer then remove it
       if (g.groupTranslateY + g.height < minTranslateYPlusHeight || g.groupTranslateY > maxTranslateY) {
         return;
-      } // Only add images of the group that are within the buffer
+      }
 
-
-      g.items = g.items.filter(function (img) {
-        if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
-          return false;
-        } else {
-          return true;
-        }
-      });
       arrOfGroups.push(g);
     }); //function to update visible groups
 
