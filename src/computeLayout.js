@@ -23,7 +23,6 @@ export default function ({
   totalHeight,
   wrapperWidth,
   scaleOfImages,
-  numberOfItems,
 }) {
   // Compute the minimum aspect ratio that should be applied to the rows.
   const minAspectRatio = getMinAspectRatio(wrapperWidth, scaleOfImages);
@@ -89,56 +88,6 @@ export default function ({
       translateX = 0;
     }
   });
-  for (var i = imageData.length; i < numberOfItems; i++) {
-    row.push({ id: i, isTemp: true });
-
-    //assume aspect ratio is 1
-    rowAspectRatio += 1;
-    if (rowAspectRatio >= minAspectRatio || i + 1 === numberOfItems.length) {
-      // Compute that row's height.
-      let totalDesiredWidthOfImages =
-        wrapperWidth - settings.gridGap * (row.length - 1);
-      let rowHeight = totalDesiredWidthOfImages / rowAspectRatio;
-
-      // Handles cases where we don't have enough images to fill a row
-      if (rowAspectRatio < minAspectRatio) {
-        rowHeight = totalDesiredWidthOfImages / minAspectRatio;
-      }
-
-      // For each image in the row, compute the width, height, translateX,
-      // and translateY values, and set them (and the transition value we
-      // found above) on each image.
-      //
-      // NOTE: that does not manipulate the DOM, rather it just sets the
-      //       style values on the ProgressiveImage instance. The DOM nodes
-      //       will be updated in doLayout.
-
-      row.forEach((img) => {
-        const imageWidth = rowHeight;
-
-        tempImgData.push({
-          ...img,
-          style: {
-            width: parseFloat(imageWidth.toFixed(3), 10),
-            height: parseFloat(rowHeight.toFixed(3), 10),
-            translateX,
-            translateY,
-          },
-        });
-
-        // The next image is settings.gridGap pixels to the
-        // right of that image.
-        translateX += imageWidth + settings.gridGap;
-      });
-
-      // Reset our state variables for next row.
-      row = [];
-      rowAspectRatio = 0;
-      translateY += parseInt(rowHeight, 10) + settings.gridGap;
-      translateX = 0;
-    }
-  }
-
   // No space below the last image
   totalHeight = translateY - settings.gridGap;
 
