@@ -14,6 +14,22 @@ import getScrollSpeed from "./utils/getScrollSpeed";
 
 import styles from "./styles.css";
 
+export function addTempElementsToGroups(photosGroupedByDate) {
+  photosGroupedByDate.forEach((group) => {
+    for (var i = 0; i < group.numberOfItems; i++) {
+      group.items.push({ id: i, aspectRatio: 1, isTemp: true });
+    }
+  });
+}
+
+export function addTempElementsToFlatList(photosCount) {
+  var tempPhotos = [];
+  for (var i = 0; i < photosCount; i++) {
+    tempPhotos.push({ id: i, aspectRatio: 1, isTemp: true });
+  }
+  return tempPhotos;
+}
+
 export default class Pig extends Component {
   constructor(props) {
     super(props);
