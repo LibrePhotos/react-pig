@@ -55,7 +55,6 @@ export default function ({
 
     //function to update visible groups
     updateGroups(arrOfGroups);
-
     return arrOfGroups;
   } else {
     var visibleItems = imageData.filter((img) => {
@@ -70,8 +69,6 @@ export default function ({
     });
     //function to update visible items
     updateItems(visibleItems);
-    return visibleItems.filter(
-      (item) => item.isTemp == false || item.isTemp == undefined
-    );
+    return visibleItems;
   }
 }

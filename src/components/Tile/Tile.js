@@ -21,13 +21,15 @@ const Tile = React.memo(function Tile({
   settings,
   overlay,
 }) {
+  const isTemp = item.isTemp == true && item.isTemp != undefined;
   const isSelectable = selectable;
   const isSelected = selected;
   const isExpanded = activeTileUrl === item.url;
   const isVideo =
-    item.url.includes(".mp4") ||
-    item.url.includes(".mov") ||
-    (item.type !== undefined && item.type.includes("video"));
+    !isTemp &&
+    (item.url.includes(".mp4") ||
+      item.url.includes(".mov") ||
+      (item.type !== undefined && item.type.includes("video")));
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
@@ -96,7 +98,7 @@ const Tile = React.memo(function Tile({
         transform: transform.to((t) => t),
       }}
     >
-      {useLqip && (
+      {useLqip && !isTemp && (
         // LQIP
         <img
           className={`${styles.pigImg} ${styles.pigThumbnail}${
@@ -110,7 +112,7 @@ const Tile = React.memo(function Tile({
         />
       )}
 
-      {scrollSpeed === "slow" && !isVideo && (
+      {scrollSpeed === "slow" && !isVideo && !isTemp && (
         // grid image
         <img
           className={`${styles.pigImg} ${styles.pigFull}${
@@ -122,7 +124,7 @@ const Tile = React.memo(function Tile({
         />
       )}
 
-      {scrollSpeed === "slow" && isVideo && (
+      {scrollSpeed === "slow" && isVideo && !isTemp && (
         <video
           className={`${styles.pigImg} ${styles.pigThumbnail}${
             isFullSizeLoaded ? ` ${styles.pigThumbnailLoaded}` : ""
@@ -137,7 +139,7 @@ const Tile = React.memo(function Tile({
         />
       )}
 
-      {isExpanded && !isVideo && (
+      {isExpanded && !isVideo && !isTemp && (
         // full size expanded image
         <img
           className={styles.pigImg}
@@ -146,7 +148,7 @@ const Tile = React.memo(function Tile({
         />
       )}
 
-      {isExpanded && isVideo && (
+      {isExpanded && isVideo && !isTemp && (
         // full size expanded video
         <video
           className={styles.pigImg}

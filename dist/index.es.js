@@ -4661,10 +4661,11 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
       scrollSpeed = _ref.scrollSpeed,
       settings = _ref.settings,
       overlay = _ref.overlay;
+  var isTemp = item.isTemp == true && item.isTemp != undefined;
   var isSelectable = selectable;
   var isSelected = selected;
   var isExpanded = activeTileUrl === item.url;
-  var isVideo = item.url.includes(".mp4") || item.url.includes(".mov") || item.type !== undefined && item.type.includes("video");
+  var isVideo = !isTemp && (item.url.includes(".mp4") || item.url.includes(".mov") || item.type !== undefined && item.type.includes("video"));
 
   var _useState = useState(isVideo ? true : false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -4748,7 +4749,7 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
         return t;
       })
     }
-  }, useLqip &&
+  }, useLqip && !isTemp &&
   /*#__PURE__*/
   // LQIP
   React__default.createElement("img", {
@@ -4758,7 +4759,7 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
     width: item.style.width,
     height: item.style.height,
     alt: ""
-  }), scrollSpeed === "slow" && !isVideo &&
+  }), scrollSpeed === "slow" && !isVideo && !isTemp &&
   /*#__PURE__*/
   // grid image
   React__default.createElement("img", {
@@ -4768,7 +4769,7 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
     onLoad: function onLoad() {
       return setFullSizeLoaded(true);
     }
-  }), scrollSpeed === "slow" && isVideo && /*#__PURE__*/React__default.createElement("video", {
+  }), scrollSpeed === "slow" && isVideo && !isTemp && /*#__PURE__*/React__default.createElement("video", {
     className: "".concat(styles$2.pigImg, " ").concat(styles$2.pigThumbnail).concat(isFullSizeLoaded ? " ".concat(styles$2.pigThumbnailLoaded) : ""),
     src: getUrl(item.url, getImageHeight(containerWidth)),
     onCanPlay: function onCanPlay() {
@@ -4783,14 +4784,14 @@ var Tile = /*#__PURE__*/React__default.memo(function Tile(_ref) {
     muted: true,
     loop: true,
     playsInline: true
-  }), isExpanded && !isVideo &&
+  }), isExpanded && !isVideo && !isTemp &&
   /*#__PURE__*/
   // full size expanded image
   React__default.createElement("img", {
     className: styles$2.pigImg,
     src: getUrl(item.url, settings.expandedSize),
     alt: ""
-  }), isExpanded && isVideo &&
+  }), isExpanded && isVideo && !isTemp &&
   /*#__PURE__*/
   // full size expanded video
   React__default.createElement("video", {
@@ -4907,9 +4908,7 @@ function calcRenderableItems (_ref) {
     }); //function to update visible items
 
     updateItems(visibleItems);
-    return visibleItems.filter(function (item) {
-      return item.isTemp == false || item.isTemp == undefined;
-    });
+    return visibleItems;
   }
 }
 
