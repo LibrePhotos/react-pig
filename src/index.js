@@ -258,9 +258,9 @@ export default class Pig extends Component {
       selectable={this.selectable}
       selected={
         this.props.selectedItems
-          ? this.props.selectedItems.find(
+          ? this.props.selectedItems.findIndex(
               (selectedItem) => selectedItem.id === item.id
-            )
+            ) >= 0
           : this.state.selectedItems.includes(item)
       }
       activeTileUrl={this.state.activeTileUrl}
