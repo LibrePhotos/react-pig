@@ -5458,6 +5458,8 @@ var Pig = /*#__PURE__*/function (_Component) {
       if (this.props != prevProps) {
         this.imageData = this.props.imageData;
         this.imageData = this.getUpdatedImageLayout();
+        this.container.style.height = this.totalHeight + "px"; // set the container height again based on new layout
+
         this.setRenderedItems(this.imageData);
       }
     }
