@@ -164,6 +164,7 @@ const Tile = React.memo(function Tile({
         <div className={styles.overlaysTopLeft}>
           {isSelectable && (
             <input
+              key={item.id + isSelected}
               type="checkbox"
               className={styles.checkbox}
               defaultChecked={isSelected}

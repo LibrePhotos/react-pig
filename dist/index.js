@@ -4838,6 +4838,7 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
   }), /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("div", {
     className: styles$2.overlaysTopLeft
   }, isSelectable && /*#__PURE__*/React__default['default'].createElement("input", {
+    key: item.id + isSelected,
     type: "checkbox",
     className: styles$2.checkbox,
     defaultChecked: isSelected,
@@ -5298,9 +5299,9 @@ var Pig = /*#__PURE__*/function (_Component) {
         handleClick: _this.handleClick,
         handleSelection: _this.handleSelection,
         selectable: _this.selectable,
-        selected: _this.props.selectedItems ? _this.props.selectedItems.find(function (selectedItem) {
+        selected: _this.props.selectedItems ? _this.props.selectedItems.findIndex(function (selectedItem) {
           return selectedItem.id === item.id;
-        }) : _this.state.selectedItems.includes(item),
+        }) >= 0 : _this.state.selectedItems.includes(item),
         activeTileUrl: _this.state.activeTileUrl,
         settings: _this.settings,
         thumbnailSize: _this.props.thumbnailSize,
