@@ -4857,6 +4857,10 @@ var GroupHeader = (function (_ref) {
   }, group.date)));
 });
 
+function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function calcRenderableItems (_ref) {
   var containerOffsetTop = _ref.containerOffsetTop,
       scrollDirection = _ref.scrollDirection,
@@ -4886,9 +4890,27 @@ function calcRenderableItems (_ref) {
       }
 
       arrOfGroups.push(g);
+    });
+    var arrOfGroupsWithOnlyVisibleItems = [];
+    arrOfGroups.forEach(function (g) {
+      var arrOfItems = [];
+      g.items.forEach(function (i) {
+        // If the item is not within the buffer then remove it
+        if (i.style.translateY + i.style.height < minTranslateYPlusHeight || i.style.translateY > maxTranslateY) {
+          return;
+        }
+
+        arrOfItems.push(i);
+      });
+
+      if (arrOfItems.length > 0) {
+        arrOfGroupsWithOnlyVisibleItems.push(_objectSpread$2(_objectSpread$2({}, g), {}, {
+          items: arrOfItems
+        }));
+      }
     }); //function to update visible groups
 
-    updateGroups(arrOfGroups);
+    updateGroups(arrOfGroupsWithOnlyVisibleItems);
     return arrOfGroups;
   } else {
     var visibleItems = imageData.filter(function (img) {

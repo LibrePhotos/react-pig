@@ -40,9 +40,28 @@ export default function ({
       }
       arrOfGroups.push(g);
     });
-
+    const arrOfGroupsWithOnlyVisibleItems = [];
+    arrOfGroups.forEach((g) => {
+      const arrOfItems = [];
+      g.items.forEach((i) => {
+        // If the item is not within the buffer then remove it
+        if (
+          i.style.translateY + i.style.height < minTranslateYPlusHeight ||
+          i.style.translateY > maxTranslateY
+        ) {
+          return;
+        }
+        arrOfItems.push(i);
+      });
+      if (arrOfItems.length > 0) {
+        arrOfGroupsWithOnlyVisibleItems.push({
+          ...g,
+          items: arrOfItems,
+        });
+      }
+    });
     //function to update visible groups
-    updateGroups(arrOfGroups);
+    updateGroups(arrOfGroupsWithOnlyVisibleItems);
     return arrOfGroups;
   } else {
     var visibleItems = imageData.filter((img) => {

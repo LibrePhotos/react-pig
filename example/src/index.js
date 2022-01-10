@@ -15,11 +15,8 @@ import Overlay from "./components/Overlay";
 
 ReactDOM.render(
   <main className="main">
-    {/*
-      <IncompletePig/>
-      */}
-    {
-      <Pig
+    {<IncompleteGroupedPig />}
+    {/* <Pig
         imageData={imageDataGrouped}
         groupByDate
         gridGap={8}
@@ -31,7 +28,7 @@ ReactDOM.render(
         scaleOfImages={3}
         overlay={Overlay}
       />
-    }
+      */}
   </main>,
   document.getElementById("root")
 );
