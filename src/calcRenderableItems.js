@@ -62,7 +62,7 @@ export default function ({
     });
     //function to update visible groups
     updateGroups(arrOfGroupsWithOnlyVisibleItems);
-    return arrOfGroups;
+    return arrOfGroupsWithOnlyVisibleItems;
   } else {
     var visibleItems = imageData.filter((img) => {
       if (

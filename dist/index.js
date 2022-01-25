@@ -4940,7 +4940,7 @@ function calcRenderableItems (_ref) {
     }); //function to update visible groups
 
     updateGroups(arrOfGroupsWithOnlyVisibleItems);
-    return arrOfGroups;
+    return arrOfGroupsWithOnlyVisibleItems;
   } else {
     var visibleItems = imageData.filter(function (img) {
       if (img.style.translateY + img.style.height < minTranslateYPlusHeight || img.style.translateY > maxTranslateY) {
