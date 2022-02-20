@@ -15,8 +15,8 @@ Instead of hosting images locally I've used Cloudinary - an image hosting provid
 In addition each image is now clickable and will expand to the center of the screen. It uses React Spring to handle the transition.
 
 ## React-pig-utils
-React Pig requires that a specific JSON format be supplied. So this project comes with a companion repo which provides utilities for doing that. Check it out here [react-pig-utils](https://github.com/nickmcmillan/react-pig-utils).
 
+React Pig requires that a specific JSON format be supplied. So this project comes with a companion repo which provides utilities for doing that. Check it out here [react-pig-utils](https://github.com/nickmcmillan/react-pig-utils).
 
 ## Example usage of react-pig
 
@@ -39,7 +39,7 @@ class App extends Component {
         updateItems=(visibleItem) => {} // Function. Optional. Returns the visible Items / items in buffer for dynamically fetching items.
         scaleOfImage={3} // Number. Show more or less images. This value would show 3x more images
         groupByDate // Boolean. Optional. Groups images by 'date' value. And uses the first 'location' in the group for the heading text.
-        updateGroups=(visibleGroups) => {} // Function. Optional. Returns the visible groups / groups in buffer to dynamically fetch data for them 
+        updateGroups=(visibleGroups) => {} // Function. Optional. Returns the visible groups / groups in buffer to dynamically fetch data for them
         gridGap={10} // Integer. Optional. Defaults to 8
         expandedSize={1600} // Integer. Optional. Expanded image will be loaded in that size. Defaults to 1000
         thumbnailSize={25} // Integer. Optional. Thumbnail image will be loaded in that size. Defaults to 10
@@ -62,7 +62,8 @@ class App extends Component {
         selectable={true} // If true, it will add a selection to the top left corner
         handleSelection={(item) =>{}} // Allows for a custom selection handler
         selectedItems={selectedItems} // Array. Makes it possible to change the state of the selected tiles
-        overlay={component} // Add a component to the top right corner as an overlay
+        toprightoverlay={component} // Add a component to the top right corner as an overlay
+        bottomleftoverlay={component} // Add a component to the bottom left corner as an overlay
       />
     )
   }
@@ -70,28 +71,34 @@ class App extends Component {
 
 export default App
 ```
+
 ## Development
 
 You have to install yarn:
+
 ```
 npm install --global yarn
 ```
+
 Use the yarn commands to install and continuously build react-pig:
+
 ```
 yarn install
 yarn run build
 yarn start
 ```
+
 To test your changes to the component, build and serve the example:
+
 ```
 cd /example
 yarn install
 yarn start
 ```
+
 You should now be able to see the website, with the changed component, at localhost:3000
 
 This React library was packaged with https://github.com/transitive-bullshit/create-react-library
-
 
 ## License
 
