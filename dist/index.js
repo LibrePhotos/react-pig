@@ -4671,8 +4671,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$2 = ".styles_pigBtn__2fg-y {\n  contain: strict;\n  /* overflow: hidden; */\n  position: absolute;\n  left: 0;\n  top: 0;\n  outline-style: solid;\n  outline: 0;\n  will-change: transform, width, height, outline-color;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  padding: 0;\n  text-align: left;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  cursor: pointer;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\n\n/* .pigBtn:hover,\n.pigBtn:focus {\n  outline: 6px solid yellow;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\n  transform: none;\n}\n\n.styles_pigImg__3TCRj {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.styles_pigFull__1WI_d {\n  opacity: 0;\n  transition: opacity 150ms linear;\n  will-change: opacity;\n}\n\n.styles_pigThumbnail__Cqepl {\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n\n.styles_pigThumbnailLoaded__siNak {\n  /* just in case it might help performance */\n  filter: none;\n}\n\n.styles_pigFullLoaded__3A8x7 {\n  opacity: 1;\n}\n\n/* .caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  color: #fff;\n  pointer-events: none;\n  width: 100%;\n  padding: 8px;\n} */\n/*\n.caption::after {\n  content: '';\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\n  top: 0;\n  left: 0;\n  bottom: -10px;\n  right: 0;\n  position: absolute;\n  z-index: -1;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\n  opacity: 0.5;\n  transition: all 200ms linear;\n}\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_checkbox__2WWsQ {\n  opacity: 0;\n}\n\n.styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_overlaysTopLeft__T_0rX {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n}\n\n.styles_overlaysTopRight__34YAC {\n  position: absolute;\n  top: 0px;\n  right: -4px;\n}\n";
-var styles$2 = {"pigBtn":"styles_pigBtn__2fg-y","caption":"styles_caption__1Fti-","pigImg":"styles_pigImg__3TCRj","pigFull":"styles_pigFull__1WI_d","pigThumbnail":"styles_pigThumbnail__Cqepl","pigThumbnailLoaded":"styles_pigThumbnailLoaded__siNak","pigFullLoaded":"styles_pigFullLoaded__3A8x7","checkbox":"styles_checkbox__2WWsQ","overlaysTopLeft":"styles_overlaysTopLeft__T_0rX","overlaysTopRight":"styles_overlaysTopRight__34YAC"};
+var css_248z$2 = ".styles_pigBtn__2fg-y {\n  contain: strict;\n  /* overflow: hidden; */\n  position: absolute;\n  left: 0;\n  top: 0;\n  outline-style: solid;\n  outline: 0;\n  will-change: transform, width, height, outline-color;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  padding: 0;\n  text-align: left;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  cursor: pointer;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\n\n/* .pigBtn:hover,\n.pigBtn:focus {\n  outline: 6px solid yellow;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_caption__1Fti-,\n.styles_pigBtn__2fg-y:focus .styles_caption__1Fti- {\n  transform: none;\n}\n\n.styles_pigImg__3TCRj {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.styles_pigFull__1WI_d {\n  opacity: 0;\n  transition: opacity 150ms linear;\n  will-change: opacity;\n}\n\n.styles_pigThumbnail__Cqepl {\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n\n.styles_pigThumbnailLoaded__siNak {\n  /* just in case it might help performance */\n  filter: none;\n}\n\n.styles_pigFullLoaded__3A8x7 {\n  opacity: 1;\n}\n\n/* .caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  color: #fff;\n  pointer-events: none;\n  width: 100%;\n  padding: 8px;\n} */\n/*\n.caption::after {\n  content: '';\n  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));\n  top: 0;\n  left: 0;\n  bottom: -10px;\n  right: 0;\n  position: absolute;\n  z-index: -1;\n} */\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ {\n  opacity: 0.5;\n  transition: all 200ms linear;\n}\n\n.styles_pigBtn__2fg-y:hover .styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_checkbox__2WWsQ {\n  opacity: 0;\n}\n\n.styles_checkbox__2WWsQ:checked {\n  opacity: 1;\n}\n\n.styles_overlaysTopLeft__T_0rX {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n}\n\n.styles_overlaysTopRight__34YAC {\n  position: absolute;\n  top: 0px;\n  right: -4px;\n}\n\n.styles_overlaysBottomLeft__eC-H7 {\n  position: absolute;\n  bottom: 0px;\n  left: 0px;\n}\n";
+var styles$2 = {"pigBtn":"styles_pigBtn__2fg-y","caption":"styles_caption__1Fti-","pigImg":"styles_pigImg__3TCRj","pigFull":"styles_pigFull__1WI_d","pigThumbnail":"styles_pigThumbnail__Cqepl","pigThumbnailLoaded":"styles_pigThumbnailLoaded__siNak","pigFullLoaded":"styles_pigFullLoaded__3A8x7","checkbox":"styles_checkbox__2WWsQ","overlaysTopLeft":"styles_overlaysTopLeft__T_0rX","overlaysTopRight":"styles_overlaysTopRight__34YAC","overlaysBottomLeft":"styles_overlaysBottomLeft__eC-H7"};
 styleInject(css_248z$2);
 
 var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
@@ -4689,7 +4689,8 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
       windowHeight = _ref.windowHeight,
       scrollSpeed = _ref.scrollSpeed,
       settings = _ref.settings,
-      overlay = _ref.overlay;
+      toprightoverlay = _ref.toprightoverlay,
+      bottomleftoverlay = _ref.bottomleftoverlay;
   var isTemp = item.isTemp == true && item.isTemp != undefined;
   var isSelectable = selectable;
   var isSelected = selected;
@@ -4701,7 +4702,8 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
       isFullSizeLoaded = _useState2[0],
       setFullSizeLoaded = _useState2[1];
 
-  var Overlay = overlay;
+  var TopRightOverlay = toprightoverlay;
+  var BottomLeftOverlay = bottomleftoverlay;
 
   var _getTileMeasurements = getTileMeasurements({
     item: item,
@@ -4848,7 +4850,11 @@ var Tile = /*#__PURE__*/React__default['default'].memo(function Tile(_ref) {
     }
   })), /*#__PURE__*/React__default['default'].createElement("div", {
     className: styles$2.overlaysTopRight
-  }, undefined != Overlay && /*#__PURE__*/React__default['default'].createElement(Overlay, {
+  }, undefined != TopRightOverlay && /*#__PURE__*/React__default['default'].createElement(TopRightOverlay, {
+    item: item
+  })), /*#__PURE__*/React__default['default'].createElement("div", {
+    className: styles$2.overlaysBottomLeft
+  }, undefined != BottomLeftOverlay && /*#__PURE__*/React__default['default'].createElement(BottomLeftOverlay, {
     item: item
   }))));
 });
@@ -5328,7 +5334,8 @@ var Pig = /*#__PURE__*/function (_Component) {
         settings: _this.settings,
         thumbnailSize: _this.props.thumbnailSize,
         scrollSpeed: _this.state.scrollSpeed,
-        overlay: _this.props.overlay
+        toprightoverlay: _this.props.toprightoverlay,
+        bottomleftoverlay: _this.props.bottomleftoverlay
       });
     });
 

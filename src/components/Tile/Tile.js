@@ -19,7 +19,8 @@ const Tile = React.memo(function Tile({
   windowHeight,
   scrollSpeed,
   settings,
-  overlay,
+  toprightoverlay,
+  bottomleftoverlay,
 }) {
   const isTemp = item.isTemp == true && item.isTemp != undefined;
   const isSelectable = selectable;
@@ -33,7 +34,8 @@ const Tile = React.memo(function Tile({
   const [isFullSizeLoaded, setFullSizeLoaded] = useState(
     isVideo ? true : false
   );
-  const Overlay = overlay;
+  const TopRightOverlay = toprightoverlay;
+  const BottomLeftOverlay = bottomleftoverlay;
 
   const { calcWidth, calcHeight, offsetX, offsetY } = getTileMeasurements({
     item,
@@ -176,7 +178,10 @@ const Tile = React.memo(function Tile({
           )}
         </div>
         <div className={styles.overlaysTopRight}>
-          {undefined != Overlay && <Overlay item={item} />}
+          {undefined != TopRightOverlay && <TopRightOverlay item={item} />}
+        </div>
+        <div className={styles.overlaysBottomLeft}>
+          {undefined != BottomLeftOverlay && <BottomLeftOverlay item={item} />}
         </div>
       </div>
     </animated.button>

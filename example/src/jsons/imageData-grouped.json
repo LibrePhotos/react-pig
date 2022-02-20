@@ -35,7 +35,8 @@
                 "date": "22 October 2017",
                 "birthTime": "2019-02-21T19:52:06.843Z",
                 "aspectRatio": 1.5,
-                "favorited": true
+                "favorited": true,
+                "video": true
             }
         ]
     },

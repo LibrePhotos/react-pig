@@ -12,11 +12,13 @@ import IncompletePig from "./components/IncompletePig";
 import "semantic-ui-css/semantic.min.css";
 import "./base.css";
 import Overlay from "./components/Overlay";
+import BottomLeftOverlay from "./components/BottomLeftOverlay";
 
 ReactDOM.render(
   <main className="main">
-    {<IncompleteGroupedPig />}
-    {/* <Pig
+    {/*<IncompleteGroupedPig />*/}
+    {
+      <Pig
         imageData={imageDataGrouped}
         groupByDate
         gridGap={8}
@@ -26,9 +28,10 @@ ReactDOM.render(
         selectable={true}
         breakpoint={800}
         scaleOfImages={3}
-        overlay={Overlay}
+        toprightoverlay={Overlay}
+        bottomleftoverlay={BottomLeftOverlay}
       />
-      */}
+    }
   </main>,
   document.getElementById("root")
 );

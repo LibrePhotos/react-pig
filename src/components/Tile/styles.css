@@ -108,3 +108,9 @@
   top: 0px;
   right: -4px;
 }
+
+.overlaysBottomLeft {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}

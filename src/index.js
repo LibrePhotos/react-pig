@@ -267,7 +267,8 @@ export default class Pig extends Component {
       settings={this.settings}
       thumbnailSize={this.props.thumbnailSize}
       scrollSpeed={this.state.scrollSpeed}
-      overlay={this.props.overlay}
+      toprightoverlay={this.props.toprightoverlay}
+      bottomleftoverlay={this.props.bottomleftoverlay}
     />
   );
 
